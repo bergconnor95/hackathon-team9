@@ -1,4 +1,7 @@
-<app-modal [content]="quarterContent"></app-modal>
+<button (click)="openModal(quarter)">Open Modal</button>
+
+
+<app-modal id="quarter" [content]="quarterContent"></app-modal>
 
 
 <ng-template #quarterContent>
