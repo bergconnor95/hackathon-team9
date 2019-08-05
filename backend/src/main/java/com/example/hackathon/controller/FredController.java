@@ -30,7 +30,7 @@ public class FredController {
     	System.out.println(stateCode + " real wage info");
         ArrayList<String> test = new ArrayList<String>(GetRealWageByState(stateCode));
         String temp = (test.get(test.size() -1));
-        Double rate = (Double.parseDouble(temp.substring(temp.length()-9, temp.length()-4)))/12;
+        Double rate = (Double.parseDouble(temp.substring(temp.length()-9, temp.length()-4)))/8;
         
         System.out.println(rate);
    
