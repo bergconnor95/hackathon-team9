@@ -1,0 +1,13 @@
+<table border="1">
+  <thead></thead>
+  <tr>
+    <th>path</th>
+    <th>file size</th>
+  </tr>
+  <tbody>
+      <tr *ngFor="let image of images">
+          <td>{{image.path}}</td>
+          <td>{{image.size}}</td>
+      </tr>
+  </tbody>
+</table>
