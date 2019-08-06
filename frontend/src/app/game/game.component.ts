@@ -46,6 +46,7 @@ export class GameComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+<<<<<<< HEAD
     const secondsCounter = interval(1000);
     const mytimeout = interval(1000);
     const newCounter = secondsCounter.pipe(map(x => this.amount));
@@ -64,6 +65,11 @@ export class GameComponent implements OnInit, AfterViewInit {
     if (event.keyCode === KEY_CODE.SPACE) {
       this.timeout = 0;
     }
+=======
+    this.route.routerState.root.queryParams.subscribe(
+      params => console.log('queryParams', params['rate'])
+    );
+>>>>>>> f3a78b9bfb19f57d155a625ea3e0873e76eabd99
   }
 
   openModal() {
