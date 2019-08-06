@@ -15,7 +15,11 @@ export class MapComponent {
 
   constructor(
     private httpClientService:HttpClientService,
+<<<<<<< HEAD
     private router:Router
+=======
+    private router: Router
+>>>>>>> tyler
   ) { }
 
   onMapClick(state) {
@@ -29,7 +33,11 @@ export class MapComponent {
     this.rate = response;
     this.router.navigate(['/game'], { queryParams: {
       rate: this.rate
+<<<<<<< HEAD
     }})
+=======
+    }});
+>>>>>>> tyler
   }
 
 }

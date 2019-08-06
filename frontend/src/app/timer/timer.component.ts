@@ -4,6 +4,7 @@ import { KeyEventsPlugin } from '@angular/platform-browser/src/dom/events/key_ev
 import { KEY_CODE } from '../button-click/button-click.component';
 import { map } from 'rxjs/operators';
 import { MapComponent } from '../map/map.component';
+import { Router } from '@angular/router'
 
 
 
@@ -22,7 +23,7 @@ export class TimerComponent implements OnInit, AfterViewInit {
   @ViewChild(MapComponent) 
   mapComp: MapComponent;
 
-  constructor() {
+  constructor(private route: Router) {
 
   }
 
@@ -32,12 +33,17 @@ export class TimerComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+
+    this.route.routerState.root.queryParams.subscribe(
+      params => this.rate = params['rate']
+    );
+
     const secondsCounter = interval(1000);
     const mytimeout = interval(1000);
-    const newCounter = secondsCounter.pipe(map(x => this.amount));
+    const newCounter = secondsCounter.pipe(map(x => this.rate));
     // Subscribe to begin publishing values
-    
-    newCounter.subscribe(x => this.counter += (x));
+
+    newCounter.subscribe(x => this.counter += (Number(x)));
     mytimeout.subscribe(n => {
       if ((this.timeout++) > 5) {
         this.counter = 0;
