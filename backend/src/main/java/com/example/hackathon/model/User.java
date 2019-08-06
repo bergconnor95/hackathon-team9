@@ -1,18 +1,20 @@
 package com.example.hackathon.model;
 
+import javax.persistence.*;
+
+@Entity
 public class User {
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
 	private int userID;
 	private String username;
 	private String password;
 	private double rate;
 	private double cash;
 	
-	public User(int userID, String username, String password, double rate, double cash) {
-		this.userID = userID;
-		this.username = username;
-		this.password = password;
-		this.rate = rate;
-		this.cash = cash;
+	@Override
+	public String toString() {
+		return userID + " - " + username + " / " + password + " (" + rate + "/" + cash + ")";
 	}
 	
 	public int getUserID() {
@@ -33,10 +35,6 @@ public class User {
 	
 	private double getCash() {
 		return cash;
-	}
-	
-	public void setUserID(int userID) {
-		this.userID = userID;
 	}
 	
 	public void setUsername(String username) {
