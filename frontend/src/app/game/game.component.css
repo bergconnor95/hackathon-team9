@@ -1,12 +1,12 @@
-.progressBar{
+/* .progressBar{ */
   /*background-color: black;*/
-  border: 1px solid black;
+  /* border: 1px solid black;
   width: 20%;
   height: 600px;
   transform: rotate(180deg);
-  margin: auto;
+  margin: auto; */
 
-}
+/* } */
 .Thirds{
   border: 1px solid black;
   height:1000px;
@@ -73,7 +73,16 @@ button {
 }
 
 .progressBar {
+  /* position: absolute; */
   width:100px;
   height:100px;
   background:red;
+}
+
+.stay {
+  position: absolute;
+  bottom: 0;
+  height:100px;
+  background-color: palegreen;
+  overflow: auto;
 }
