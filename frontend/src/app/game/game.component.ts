@@ -42,7 +42,7 @@ export class GameComponent implements OnInit {
     this.gumUnlocked = true;
   }
 
-  spendMoney(name: string) {
+  spendMoney(name:string) {
     document.getElementById(name+"Modal").style.display="none";
     console.log('spending my money and closing out now.');
     document.getElementById("spentModal").style.display="block";
