@@ -30,22 +30,20 @@ export class TimerComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(){
     this.rate = this.mapComp.rate;
     console.log(this.rate);
-    this.route.routerState.root.queryParams.subscribe(
-      params => this.rate = params['rate']
-    );
   }
 
   ngOnInit() {
-    const secondsCounter = interval(1000);
-    const mytimeout = interval(1000);
-    const newCounter = secondsCounter.pipe(map(x => this.amount));
-    // Subscribe to begin publishing values
-    
+
     this.route.routerState.root.queryParams.subscribe(
       params => this.rate = params['rate']
     );
 
-    newCounter.subscribe(x => this.counter += (x));
+    const secondsCounter = interval(1000);
+    const mytimeout = interval(1000);
+    const newCounter = secondsCounter.pipe(map(x => this.rate));
+    // Subscribe to begin publishing values
+
+    newCounter.subscribe(x => this.counter += (Number(x)));
     mytimeout.subscribe(n => {
       if ((this.timeout++) > 5) {
         this.counter = 0;
@@ -60,9 +58,6 @@ export class TimerComponent implements OnInit, AfterViewInit {
     if (event.keyCode === KEY_CODE.SPACE) {
       this.timeout = 0;
     }
-    this.route.routerState.root.queryParams.subscribe(
-      params => this.rate = params['rate']
-    );
   }
 
 
