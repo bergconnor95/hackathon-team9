@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { CountdownModule, Config } from 'ngx-countdown';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +9,7 @@ import { GameComponent } from './game/game.component';
 import { HomeComponent } from './home/home.component';
 import { ButtonClickComponent } from './button-click/button-click.component';
 import { TimerComponent } from './timer/timer.component';
+import { CountdownModule } from 'ngx-countdown';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -19,9 +19,6 @@ const routes: Routes = [
   {path: 'timer', component: TimerComponent}
 ];
 
-function countdownConfigFactory(): Config {
-  return { template: `$!h!:$!m!:$!s!` };
-}
 
 @NgModule({
   declarations: [
@@ -34,7 +31,6 @@ function countdownConfigFactory(): Config {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CountdownModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],
