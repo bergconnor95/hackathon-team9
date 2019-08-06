@@ -40,11 +40,11 @@ export class GameComponent implements OnInit {
 
   expandBar() {
     console.log(document.getElementById('progressBar').style.height);
-    this.height += 100;
+    this.height += 200;
     document.getElementById('progressBar').style.height = this.height+'px';
 
     // height += 100;
-    // console.log(height);
+    // console.log(height); 
     // document.getElementById('progressBar').style.height = '400px';
   }
 
