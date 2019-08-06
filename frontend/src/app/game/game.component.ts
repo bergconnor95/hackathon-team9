@@ -8,7 +8,16 @@ import { ModalService } from '../services/modal.service';
 })
 export class GameComponent implements OnInit {
 
-  unlocked: boolean = false;
+  gumUnlocked: boolean = false;
+  musicUnlocked: boolean = false;
+  happyMealUnlocked: boolean = false;
+  cubeUnlocked: boolean = false;
+  movieUnlocked: boolean = false;
+  dotUnlocked: boolean = false;
+  concertUnlocked: boolean = false;
+
+  itemToDisplay = 'Gum';
+
   height = 100;
 
   constructor(private modalService: ModalService) { }
@@ -25,7 +34,7 @@ export class GameComponent implements OnInit {
 
   keepPlaying() {
     document.getElementById("modal").style.display="none";
-    this.unlocked = true;
+    this.gumUnlocked = true;
   }
 
   spendMoney() {
