@@ -13,9 +13,19 @@ export class GameComponent implements OnInit {
   ngOnInit() {
   }
 
-  openModal(id: string) {
+  openModal() {
     console.log('I opened modal!');
-    this.modalService.open(id);
+    // document.getElementById("modal").style.opacity='1';
+    document.getElementById("modal").style.display="block";
+    // document.body.style.backgroundColor='gray';
+  }
+
+  keepPlaying() {
+    document.getElementById("modal").style.display="none";
+  }
+
+  spendMoney() {
+    console.log('spending my money and closing out now.')
   }
 
 }
