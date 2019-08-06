@@ -2,6 +2,11 @@
     font-family:verdana;
 }
 
+.buttonContainer {
+    text-align: right;
+    padding-top: 40px;
+  }
+
 button {
     width: 100px;
     cursor: pointer;
@@ -9,4 +14,26 @@ button {
     border-radius: 15px;
     font-size: 15px;
     margin-left: 20px;
+}
+
+.container{
+    display: none;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 90;
+    background: rgba(0,0,0,.6);
+    font-family:verdana;
+    position: fixed;
+  }
+
+.content {
+    background: #fefefe;
+    border: gray solid 1px;
+    border-radius: 5px;
+    width: 500px;
+    /* margin-top:50%;
+    margin-left: 50%; */
+    margin: auto;
+    text-align: left;
+    /* margin-top: 30%; */
+    padding: 20px;
   }
