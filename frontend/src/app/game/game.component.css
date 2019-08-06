@@ -6,7 +6,13 @@
   transform: rotate(180deg);
   margin: auto; */
 /* } */
-
+.allOfTheEverything{
+  height:100%;
+  width:100%;
+  /*border: 1px solid black;*/
+  overflow-y: scroll;
+  background-color: deepskyblue;
+}
 .Thirds{
   border: 1px solid black;
   height:1000px;
@@ -85,12 +91,15 @@ button {
   /* position: absolute; */
   width:100px;
   height:100px;
-  background:red;
+  background: aqua;
+  bottom: 0px;
+  position: relative;
 }
 
 .stay {
+  overflow-y: visible;
   position: absolute;
-  bottom: 0;
+  bottom: 1px;
   height:100px;
   background-color: palegreen;
   /* overflow: auto; */

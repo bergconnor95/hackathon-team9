@@ -1,42 +1,45 @@
-<div style="display: flex; flex-direction:row; position: relative;">
-  <div>
-    <div>
-        <img *ngIf="!concertUnlocked" alt="" src="../../assets/images/concert-ticket-sil.png" id="concert-ticket" style="height: 80px;">
-        <img *ngIf="concertUnlocked" alt="" src="../../assets/images/concert-ticket.png" id="concert-ticket" style="height: 80px;">
-    </div>
-    <div>
-        <img *ngIf="!dotUnlocked" alt="" src="../../assets/images/dot-sil.png" id="dot" style="height: 80px;">
-        <img *ngIf="dotUnlocked" alt="" src="../../assets/images/dot.png" id="dot" style="height: 80px;">
-    </div>
-    <div>
-        <img *ngIf="!movieUnlocked" alt="" src="../../assets/images/movie-ticket-sil.png" id="movie-ticket" style="height: 80px;">
-        <img *ngIf="movieUnlocked" alt="" src="../../assets/images/movie-ticket.png" id="movie-ticket" style="height: 80px;">
-    </div>
-    <div>
-        <img *ngIf="!cubeUnlocked" alt="" src="../../assets/images/rubiks-cube-sil.png" id="rubiks-cube" style="height: 80px;">
-        <img *ngIf="cubeUnlocked" alt="" src="../../assets/images/rubiks-cube.png" id="rubiks-cube" style="height: 80px;">
-    </div>
-    <div>
-        <img *ngIf="!happyMealUnlocked" alt="" src="../../assets/images/happy-meal-sil.png" id="happy-meal" style="height: 80px;">
-        <img *ngIf="happyMealUnlocked" alt="" src="../../assets/images/happy-meal.png" id="happy-meal" style="height: 80px;">
-    </div>
-    <div>
-        <img *ngIf="!musicUnlocked" alt="" src="../../assets/images/music-download-sil.png" id="music-download" style="height: 80px;">
-        <img *ngIf="musicUnlocked" alt="" src="../../assets/images/music-download.png" id="music-download" style="height: 80px;">
-    </div>
-    <div>
-        <img *ngIf="!gumUnlocked" alt="" src="../../assets/images/bubble-gum-sil.png" id="gum" style="height: 80px;">
-        <img *ngIf="gumUnlocked" alt="" src="../../assets/images/bubble-gum.png" id="gum" style="height: 80px;">
-    </div>
-  </div>
-  
-  <div>
-    <div class="stay" id="progressBar">
-        {{height}}
-    </div>
-  </div>
-</div>
+<div class="allOfTheEverything">
 
-<div style="margin-top: 20px; text-align: center;">
-  <button class="earnBtn" (click)="expandBar()">Tap to Earn!</button>
+    <div style="display: flex; flex-direction:row; position: relative;">
+      <div>
+        <div>
+            <img *ngIf="!concertUnlocked" alt="" src="../../assets/images/concert-ticket-sil.png" id="concert-ticket" style="height: 80px;">
+            <img *ngIf="concertUnlocked" alt="" src="../../assets/images/concert-ticket.png" id="concert-ticket" style="height: 80px;">
+        </div>
+        <div>
+            <img *ngIf="!dotUnlocked" alt="" src="../../assets/images/dot-sil.png" id="dot" style="height: 80px;">
+            <img *ngIf="dotUnlocked" alt="" src="../../assets/images/dot.png" id="dot" style="height: 80px;">
+        </div>
+        <div>
+            <img *ngIf="!movieUnlocked" alt="" src="../../assets/images/movie-ticket-sil.png" id="movie-ticket" style="height: 80px;">
+            <img *ngIf="movieUnlocked" alt="" src="../../assets/images/movie-ticket.png" id="movie-ticket" style="height: 80px;">
+        </div>
+        <div>
+            <img *ngIf="!cubeUnlocked" alt="" src="../../assets/images/rubiks-cube-sil.png" id="rubiks-cube" style="height: 80px;">
+            <img *ngIf="cubeUnlocked" alt="" src="../../assets/images/rubiks-cube.png" id="rubiks-cube" style="height: 80px;">
+        </div>
+        <div>
+            <img *ngIf="!happyMealUnlocked" alt="" src="../../assets/images/happy-meal-sil.png" id="happy-meal" style="height: 80px;">
+            <img *ngIf="happyMealUnlocked" alt="" src="../../assets/images/happy-meal.png" id="happy-meal" style="height: 80px;">
+        </div>
+        <div>
+            <img *ngIf="!musicUnlocked" alt="" src="../../assets/images/music-download-sil.png" id="music-download" style="height: 80px;">
+            <img *ngIf="musicUnlocked" alt="" src="../../assets/images/music-download.png" id="music-download" style="height: 80px;">
+        </div>
+        <div>
+            <img *ngIf="!gumUnlocked" alt="" src="../../assets/images/bubble-gum-sil.png" id="gum" style="height: 80px;">
+            <img *ngIf="gumUnlocked" alt="" src="../../assets/images/bubble-gum.png" id="gum" style="height: 80px;">
+        </div>
+      </div>
+
+      <div>
+        <div class="stay" id="progressBar">
+            {{height}}
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 20px; text-align: center;">
+      <button class="earnBtn" (click)="expandBar()">Tap to Earn!</button>
+    </div>
 </div>

@@ -23,8 +23,13 @@ export class GameComponent implements OnInit {
   constructor(private modalService: ModalService) { }
 
   ngOnInit() {
-  }
+    window.addEventListener('load', function () {
+    console.log('I opened el pagina!');
+      window.scrollTo(0,document.body.scrollHeight);
+      document.body.scrollTop = document.body.scrollHeight;
+    }, false);
 
+  }
   openModal() {
     console.log('I opened modal!');
     // document.getElementById("modal").style.opacity='1';
@@ -53,8 +58,10 @@ export class GameComponent implements OnInit {
     document.getElementById('progressBar').style.height = this.height+'px';
 
     // height += 100;
-    // console.log(height); 
+    // console.log(height);
     // document.getElementById('progressBar').style.height = '400px';
   }
+
+
 
 }
