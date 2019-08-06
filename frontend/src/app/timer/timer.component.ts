@@ -1,8 +1,9 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener, Input, AfterViewInit } from '@angular/core';
 import { interval, timer } from 'rxjs';
 import { KeyEventsPlugin } from '@angular/platform-browser/src/dom/events/key_events';
 import { KEY_CODE } from '../button-click/button-click.component';
 import { map } from 'rxjs/operators';
+import { MapComponent } from '../map/map.component';
 
 
 
@@ -11,13 +12,20 @@ import { map } from 'rxjs/operators';
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.css']
 })
-export class TimerComponent implements OnInit {
+export class TimerComponent implements OnInit, AfterViewInit {
 
   counter = 0;
   timeout = 0;
   amount = .25;
+  rate = 0;
+
+  @ViewChild(MapComponent) mapComp;
 
   constructor() {
+  }
+
+  ngAfterViewInit(){
+    this.rate = this.mapComp.rate;
   }
 
   ngOnInit() {

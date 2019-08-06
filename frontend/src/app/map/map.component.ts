@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { HttpClientService } from '../service/http-client.service';
 
 @Component({
@@ -6,6 +6,7 @@ import { HttpClientService } from '../service/http-client.service';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
+
 export class MapComponent {
 
   stateCode = '';
