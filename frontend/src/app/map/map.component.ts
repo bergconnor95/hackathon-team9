@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClientService } from '../service/http-client.service';
 
 @Component({
   selector: 'app-map',
@@ -7,12 +8,22 @@ import { Component } from '@angular/core';
 })
 export class MapComponent {
 
-  abbr = '';
+  stateCode = '';
+  rate = 0;
 
-  constructor() { }
+  constructor(
+    private httpClientService:HttpClientService
+  ) { }
 
   onMapClick(state) {
-    this.abbr = state["state-abbr"];
+    this.stateCode = state["state-abbr"];
+    this.httpClientService.getIncome(this.stateCode).subscribe(
+      response =>this.handleSuccessfulResponse(response)
+     );
+  }
+
+  handleSuccessfulResponse(response) {
+    this.rate = response;
   }
 
 }
