@@ -1,0 +1,73 @@
+.progressBar{
+  /*background-color: black;*/
+  border: 1px solid black;
+  width: 20%;
+  height: 600px;
+  transform: rotate(180deg);
+  margin: auto;
+
+}
+.Thirds{
+  border: 1px solid black;
+  height:1000px;
+  width:40%;
+  display: inline;
+}
+.floor{
+  position: fixed;
+  bottom: 0px;
+
+}
+
+.container{
+  display: none;
+  top: 0; left: 0; right: 0; bottom: 0;
+  /* opacity: 0; */
+  z-index: 9;
+  /* margin: 0; */
+  /* padding: 0; */
+  /* min-height: 100%; */
+  background: rgba(0,0,0,.6);
+  /* padding: 25px; */
+  font-family:verdana;
+  /* margin: auto; */
+  /* width: 100%; */
+  position: fixed;
+}
+
+/* .modal {
+  font-family:verdana;
+  opacity: 0;
+  margin: auto;
+  width: 100%;
+  min-height: 100vh;
+  border-radius: 20px;
+  background-color: gray;
+  text-align: center;
+  z-index: 5;
+} */
+
+.content {
+  background: #fefefe;
+  border: gray solid 1px;
+  border-radius: 5px;
+  width: 500px;
+  /* margin-top:50%;
+  margin-left: 50%; */
+  margin: auto;
+  text-align: left;
+  /* margin-top: 30%; */
+  padding: 20px;
+}
+
+.buttonContainer {
+  text-align: right;
+  padding-top: 40px;
+}
+
+button {
+  padding: 10px;
+  border-radius: 15px;
+  font-size: 15px;
+  margin-left: 20px;
+}

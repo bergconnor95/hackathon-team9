@@ -1,0 +1,28 @@
+<button (click)="openModal()">Open Modal</button>
+
+<img *ngIf="!unlocked" alt="" src="../../assets/images/happy-meal-sil.png" id="happy-meal" style="height: 120px;">
+<img *ngIf="unlocked" alt="" src="../../assets/images/happy-meal.png" id="happy-meal" style="height: 120px;">
+
+
+<div class="container" id="modal">
+  <div class="content">
+    <h3 style="margin-top: 0;">Do you want to spend your money on Gum?</h3>
+    <p>You can spend your money now or keep playing.</p>
+    <div class="buttonContainer">
+      <button (click)="keepPlaying()" style="background-color: #4A90E2; color: white; border: #4A90E2;">Keep Playing</button>
+      <button (click)="spendMoney()">Spend Money</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- <div>
+  <app-modal id="quarter" [content]="quarterContent"></app-modal>
+</div>
+<ng-template #quarterContent>
+  <h3>Do you want to spend your money on Gum?</h3>
+</ng-template> -->
