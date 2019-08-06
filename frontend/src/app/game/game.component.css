@@ -5,8 +5,8 @@
   height: 600px;
   transform: rotate(180deg);
   margin: auto; */
-
 /* } */
+
 .Thirds{
   border: 1px solid black;
   height:1000px;
@@ -72,6 +72,15 @@ button {
   margin-left: 20px;
 }
 
+.earnBtn {
+  width: 250px;
+  height: 50px;
+  background-color: #4A90E2;
+  border: none;
+  color: white;
+  font-size: 25px;
+}
+
 .progressBar {
   /* position: absolute; */
   width:100px;
@@ -84,5 +93,5 @@ button {
   bottom: 0;
   height:100px;
   background-color: palegreen;
-  overflow: auto;
+  /* overflow: auto; */
 }
