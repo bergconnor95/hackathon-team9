@@ -1,14 +1,11 @@
 import { Component, OnInit, ViewChild, HostListener, Input, AfterViewInit, Host } from '@angular/core';
 import { interval, timer } from 'rxjs';
 import { ModalService } from '../services/modal.service';
-<<<<<<< HEAD
 import { map } from 'rxjs/operators';
 import { MapComponent } from '../map/map.component';
 import { KeyEventsPlugin } from '@angular/platform-browser/src/dom/events/key_events';
 import { KEY_CODE } from '../button-click/button-click.component';
-=======
 import { Router } from '@angular/router';
->>>>>>> master
 
 @Component({
   selector: 'app-game',
@@ -17,9 +14,7 @@ import { Router } from '@angular/router';
 })
 export class GameComponent implements OnInit, AfterViewInit {
 
-<<<<<<< HEAD
   unlocked: boolean = false;
-  height = 100;
   counter = 0;
   timeout = 0;
   amount = .25;
@@ -27,7 +22,6 @@ export class GameComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MapComponent)
   mapComp: MapComponent;
-=======
   gumUnlocked: boolean = false;
   musicUnlocked: boolean = false;
   happyMealUnlocked: boolean = false;
@@ -35,7 +29,6 @@ export class GameComponent implements OnInit, AfterViewInit {
   movieUnlocked: boolean = false;
   dotUnlocked: boolean = false;
   concertUnlocked: boolean = false;
->>>>>>> master
 
   // modalUnlocked: boolean = false;
 
