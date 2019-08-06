@@ -1,13 +1,17 @@
 package com.example.hackathon.controller;
 
-import java.io.*;
-import java.net.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+
+import javax.validation.constraints.Size;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -23,18 +27,12 @@ public class FredController {
     private final static String TYPE = new String("series/observations?");
     
     @GetMapping(value = "/fred", produces = "application/json")
-    public List<String> getFred() {
-    	System.out.println("Gimme a state homie");
-    	Scanner scan = new Scanner(System.in);
-    	String stateCode = scan.next();
-    	System.out.println(stateCode + " real wage info");
+    public Double getFred(@RequestParam @Size(min = 2, max = 2) String stateCode) {
         ArrayList<String> test = new ArrayList<String>(GetRealWageByState(stateCode));
         String temp = (test.get(test.size() -1));
         Double rate = (Double.parseDouble(temp.substring(temp.length()-9, temp.length()-4)))/8;
-        
-        System.out.println(rate);
    
-        return test;
+        return rate;
     }
     
     private static ArrayList<String> GetMedianWeeklyEarnings() {
