@@ -11,6 +11,14 @@ export class HttpClientService {
   constructor(private httpClient: HttpClient) { }
 
   getImages() {
-    return this.httpClient.get(`${this.apiURL}/images`)
+    return this.httpClient.get(`${this.apiURL}/images`);
+  }
+
+  getIncome(stateCode) {
+    return this.httpClient.get(`${this.apiURL}/fred`, {
+      params: { 
+        stateCode: stateCode
+      }
+    });
   }
 }
