@@ -8,6 +8,8 @@ import { ModalService } from '../services/modal.service';
 })
 export class GameComponent implements OnInit {
 
+  unlocked: boolean = false;
+
   constructor(private modalService: ModalService) { }
 
   ngOnInit() {
@@ -22,10 +24,17 @@ export class GameComponent implements OnInit {
 
   keepPlaying() {
     document.getElementById("modal").style.display="none";
+    this.unlocked = true;
   }
 
   spendMoney() {
     console.log('spending my money and closing out now.')
   }
+
+  // changeImage(id: string) {
+  //   if(document.getElementById(id).src === 'happy-meal-sil.png') {
+  //     document.getElementById('happy-meal').src == 'happy-meal.png'
+  //   }
+  // }
 
 }

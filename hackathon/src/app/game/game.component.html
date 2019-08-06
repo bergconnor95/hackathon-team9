@@ -1,6 +1,7 @@
 <button (click)="openModal()">Open Modal</button>
 
-<p>htelkasj</p>
+<img *ngIf="!unlocked" alt="" src="../../assets/images/happy-meal-sil.png" id="happy-meal" style="height: 120px;">
+<img *ngIf="unlocked" alt="" src="../../assets/images/happy-meal.png" id="happy-meal" style="height: 120px;">
 
 
 <div class="container" id="modal">
