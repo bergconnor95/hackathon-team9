@@ -4,6 +4,7 @@ import { KeyEventsPlugin } from '@angular/platform-browser/src/dom/events/key_ev
 import { KEY_CODE } from '../button-click/button-click.component';
 import { map } from 'rxjs/operators';
 import { MapComponent } from '../map/map.component';
+import { Router } from '@angular/router'
 
 
 
@@ -22,13 +23,16 @@ export class TimerComponent implements OnInit, AfterViewInit {
   @ViewChild(MapComponent) 
   mapComp: MapComponent;
 
-  constructor() {
+  constructor(private route: Router) {
 
   }
 
   ngAfterViewInit(){
     this.rate = this.mapComp.rate;
     console.log(this.rate);
+    this.route.routerState.root.queryParams.subscribe(
+      params => this.rate = params['rate']
+    );
   }
 
   ngOnInit() {
@@ -37,6 +41,10 @@ export class TimerComponent implements OnInit, AfterViewInit {
     const newCounter = secondsCounter.pipe(map(x => this.amount));
     // Subscribe to begin publishing values
     
+    this.route.routerState.root.queryParams.subscribe(
+      params => this.rate = params['rate']
+    );
+
     newCounter.subscribe(x => this.counter += (x));
     mytimeout.subscribe(n => {
       if ((this.timeout++) > 5) {
@@ -52,6 +60,9 @@ export class TimerComponent implements OnInit, AfterViewInit {
     if (event.keyCode === KEY_CODE.SPACE) {
       this.timeout = 0;
     }
+    this.route.routerState.root.queryParams.subscribe(
+      params => this.rate = params['rate']
+    );
   }
 
 
