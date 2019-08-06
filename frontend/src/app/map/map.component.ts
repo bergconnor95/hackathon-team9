@@ -19,7 +19,7 @@ export class MapComponent {
   onMapClick(state) {
     this.stateCode = state["state-abbr"];
     this.httpClientService.getIncome(this.stateCode).subscribe(
-      response =>this.handleSuccessfulResponse(response)
+      response => this.handleSuccessfulResponse(response)
      );
   }
 

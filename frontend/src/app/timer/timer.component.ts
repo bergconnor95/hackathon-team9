@@ -19,13 +19,16 @@ export class TimerComponent implements OnInit, AfterViewInit {
   amount = .25;
   rate = 0;
 
-  @ViewChild(MapComponent) mapComp;
+  @ViewChild(MapComponent) 
+  mapComp: MapComponent;
 
   constructor() {
+
   }
 
   ngAfterViewInit(){
     this.rate = this.mapComp.rate;
+    console.log(this.rate);
   }
 
   ngOnInit() {
