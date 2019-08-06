@@ -6,13 +6,7 @@
   transform: rotate(180deg);
   margin: auto; */
 /* } */
-.allOfTheEverything{
-  height:100%;
-  width:100%;
-  /*border: 1px solid black;*/
-  overflow-y: scroll;
-  background-color: deepskyblue;
-}
+
 .Thirds{
   border: 1px solid black;
   height:1000px;
@@ -29,7 +23,7 @@
   display: none;
   top: 0; left: 0; right: 0; bottom: 0;
   /* opacity: 0; */
-  z-index: 9;
+  z-index: 90;
   /* margin: 0; */
   /* padding: 0; */
   /* min-height: 100%; */
@@ -91,16 +85,14 @@ button {
   /* position: absolute; */
   width:100px;
   height:100px;
-  background: aqua;
-  bottom: 0px;
-  position: relative;
+  background:red;
 }
 
 .stay {
-  overflow-y: visible;
+  width: 90px;
   position: absolute;
-  bottom: 1px;
-  height:100px;
+  bottom: 0;
+  height:20px;
   background-color: palegreen;
   /* overflow: auto; */
 }

@@ -1,45 +1,136 @@
-<div class="allOfTheEverything">
-
-    <div style="display: flex; flex-direction:row; position: relative;">
-      <div>
-        <div>
-            <img *ngIf="!concertUnlocked" alt="" src="../../assets/images/concert-ticket-sil.png" id="concert-ticket" style="height: 80px;">
-            <img *ngIf="concertUnlocked" alt="" src="../../assets/images/concert-ticket.png" id="concert-ticket" style="height: 80px;">
-        </div>
-        <div>
-            <img *ngIf="!dotUnlocked" alt="" src="../../assets/images/dot-sil.png" id="dot" style="height: 80px;">
-            <img *ngIf="dotUnlocked" alt="" src="../../assets/images/dot.png" id="dot" style="height: 80px;">
-        </div>
-        <div>
-            <img *ngIf="!movieUnlocked" alt="" src="../../assets/images/movie-ticket-sil.png" id="movie-ticket" style="height: 80px;">
-            <img *ngIf="movieUnlocked" alt="" src="../../assets/images/movie-ticket.png" id="movie-ticket" style="height: 80px;">
-        </div>
-        <div>
-            <img *ngIf="!cubeUnlocked" alt="" src="../../assets/images/rubiks-cube-sil.png" id="rubiks-cube" style="height: 80px;">
-            <img *ngIf="cubeUnlocked" alt="" src="../../assets/images/rubiks-cube.png" id="rubiks-cube" style="height: 80px;">
-        </div>
-        <div>
-            <img *ngIf="!happyMealUnlocked" alt="" src="../../assets/images/happy-meal-sil.png" id="happy-meal" style="height: 80px;">
-            <img *ngIf="happyMealUnlocked" alt="" src="../../assets/images/happy-meal.png" id="happy-meal" style="height: 80px;">
-        </div>
-        <div>
-            <img *ngIf="!musicUnlocked" alt="" src="../../assets/images/music-download-sil.png" id="music-download" style="height: 80px;">
-            <img *ngIf="musicUnlocked" alt="" src="../../assets/images/music-download.png" id="music-download" style="height: 80px;">
-        </div>
-        <div>
-            <img *ngIf="!gumUnlocked" alt="" src="../../assets/images/bubble-gum-sil.png" id="gum" style="height: 80px;">
-            <img *ngIf="gumUnlocked" alt="" src="../../assets/images/bubble-gum.png" id="gum" style="height: 80px;">
-        </div>
-      </div>
-
-      <div>
-        <div class="stay" id="progressBar">
-            {{height}}
-        </div>
-      </div>
+<div style="display: flex; flex-direction:row; position: relative; justify-content: space-evenly;">
+  <div style="flex-direction: column">
+    <div>
+        <img *ngIf="!concertUnlocked" alt="" src="../../assets/images/concert-ticket-sil.png" id="concert-ticket" style="height: 80px;">
+        <img *ngIf="concertUnlocked" alt="" src="../../assets/images/concert-ticket.png" id="concert-ticket" style="height: 80px;">
     </div>
-
-    <div style="margin-top: 20px; text-align: center;">
-      <button class="earnBtn" (click)="expandBar()">Tap to Earn!</button>
+    <div>
+        <img *ngIf="!dotUnlocked" alt="" src="../../assets/images/dot-sil.png" id="dot" style="height: 80px;">
+        <img *ngIf="dotUnlocked" alt="" src="../../assets/images/dot.png" id="dot" style="height: 80px;">
     </div>
+    <div>
+        <img *ngIf="!movieUnlocked" alt="" src="../../assets/images/movie-ticket-sil.png" id="movie-ticket" style="height: 80px;">
+        <img *ngIf="movieUnlocked" alt="" src="../../assets/images/movie-ticket.png" id="movie-ticket" style="height: 80px;">
+    </div>
+    <div>
+        <img *ngIf="!cubeUnlocked" alt="" src="../../assets/images/rubiks-cube-sil.png" id="rubiks-cube" style="height: 80px;">
+        <img *ngIf="cubeUnlocked" alt="" src="../../assets/images/rubiks-cube.png" id="rubiks-cube" style="height: 80px;">
+    </div>
+    <div>
+        <img *ngIf="!happyMealUnlocked" alt="" src="../../assets/images/happy-meal-sil.png" id="happy-meal" style="height: 80px;">
+        <img *ngIf="happyMealUnlocked" alt="" src="../../assets/images/happy-meal.png" id="happy-meal" style="height: 80px;">
+    </div>
+    <div>
+        <img *ngIf="!musicUnlocked" alt="" src="../../assets/images/music-download-sil.png" id="music-download" style="height: 80px;">
+        <img *ngIf="musicUnlocked" alt="" src="../../assets/images/music-download.png" id="music-download" style="height: 80px;">
+    </div>
+    <div>
+        <img *ngIf="!gumUnlocked" alt="" src="../../assets/images/bubble-gum-sil.png" id="gum" style="height: 80px;">
+        <img *ngIf="gumUnlocked" alt="" src="../../assets/images/bubble-gum.png" id="gum" style="height: 80px;">
+    </div>
+  </div>
+  
+  <div style="flex-direction: column">
+    <div class="stay" id="progressBar">
+        {{moneyEarned | number : '1.2-2'}}
+    </div>
+  </div>
+
+  <div style="flex-direction: column">
+    <p style="margin-bottom:70px;">Concert Ticket - $50.00</p>
+    <p style="margin-bottom:70px;">Dot - $25.00</p>
+    <p style="margin-bottom:70px;">Movie Ticket - $13.00</p>
+    <p style="margin-bottom:70px;">Rubik's Cube - $5.00</p>
+    <p style="margin-bottom:70px;">Happy Meal - $3.00</p>
+    <p style="margin-bottom:70px;">Music Download - $0.99</p>
+    <p style="margin-bottom:70px;">Gum - $0.25</p>
+  </div>
 </div>
+
+<div style="margin-top: 20px; text-align: center;">
+  <button class="earnBtn" (click)="expandBar()">Tap to Earn!</button>
+</div>
+
+<!-- all of the modals below -->
+<div class="container" id="gumModal">
+    <div class="content">
+      <h3 style="margin-top: 0;">Do you want to spend your money on gum?</h3>
+      <p>You can spend your money now or keep playing.</p>
+      <div class="buttonContainer">
+        <button (click)="keepPlaying('gum')" style="background-color: #4A90E2; color: white; border: #4A90E2;">Keep Playing</button>
+        <button (click)="spendMoney('gum')">Spend Money</button>
+      </div>
+    </div>
+  </div>
+  <div class="container" id="musicModal">
+    <div class="content">
+      <h3 style="margin-top: 0;">Do you want to spend your money on a music download?</h3>
+      <p>You can spend your money now or keep playing.</p>
+      <div class="buttonContainer">
+        <button (click)="keepPlaying('music')" style="background-color: #4A90E2; color: white; border: #4A90E2;">Keep Playing</button>
+        <button (click)="spendMoney('music')">Spend Money</button>
+      </div>
+    </div>
+  </div>
+  <div class="container" id="happyMealModal">
+    <div class="content">
+      <h3 style="margin-top: 0;">Do you want to spend your money on a Happy Meal?</h3>
+      <p>You can spend your money now or keep playing.</p>
+      <div class="buttonContainer">
+        <button (click)="keepPlaying('happyMeal')" style="background-color: #4A90E2; color: white; border: #4A90E2;">Keep Playing</button>
+        <button (click)="spendMoney('happyMeal')">Spend Money</button>
+      </div>
+    </div>
+  </div>
+  <div class="container" id="cubeModal">
+    <div class="content">
+      <h3 style="margin-top: 0;">Do you want to spend your money on a Rubik's Cube?</h3>
+      <p>You can spend your money now or keep playing.</p>
+      <div class="buttonContainer">
+        <button (click)="keepPlaying('cube')" style="background-color: #4A90E2; color: white; border: #4A90E2;">Keep Playing</button>
+        <button (click)="spendMoney('cube')">Spend Money</button>
+      </div>
+    </div>
+  </div>
+  <div class="container" id="movieModal">
+    <div class="content">
+      <h3 style="margin-top: 0;">Do you want to spend your money on a movie ticket?</h3>
+      <p>You can spend your money now or keep playing.</p>
+      <div class="buttonContainer">
+        <button (click)="keepPlaying('movie')" style="background-color: #4A90E2; color: white; border: #4A90E2;">Keep Playing</button>
+        <button (click)="spendMoney('movie')">Spend Money</button>
+      </div>
+    </div>
+  </div>
+  <div class="container" id="dotModal">
+    <div class="content">
+      <h3 style="margin-top: 0;">Do you want to spend your money on an Amazon Echo Dot?</h3>
+      <p>You can spend your money now or keep playing.</p>
+      <div class="buttonContainer">
+        <button (click)="keepPlaying('dot')" style="background-color: #4A90E2; color: white; border: #4A90E2;">Keep Playing</button>
+        <button (click)="spendMoney('dot')">Spend Money</button>
+      </div>
+    </div>
+  </div>
+  <div class="container" id="concertModal">
+    <div class="content">
+      <h3 style="margin-top: 0;">Do you want to spend your money on a concert ticket?</h3>
+      <p>You can spend your money now or keep playing.</p>
+      <div class="buttonContainer">
+        <button (click)="keepPlaying('concert')" style="background-color: #4A90E2; color: white; border: #4A90E2;">Keep Playing</button>
+        <button (click)="spendMoney('concert')">Spend Money</button>
+      </div>
+    </div>
+  </div>
+
+<div class="container" id="spentModal">
+    <div class="content">
+      <h3 style="margin-top: 0;">You've spent all your money!</h3>
+      <p>Was it worth the effort?</p>
+      <div class="buttonContainer">
+        <button (click)="goHome()" style="background-color: #4A90E2; color: white; border: #4A90E2;">Main Menu</button>
+        <!-- <button (click)="spendMoney()">Spend Money</button> -->
+      </div>
+    </div>
+  </div>
+
