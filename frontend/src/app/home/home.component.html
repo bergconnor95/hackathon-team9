@@ -3,3 +3,5 @@
 <h1>What is your time worth?</h1>
 
 <button (click)="playGame()">Begin</button>
+<button (click)="getImages()">Get Images</button>
+<li *ngFor="let obj of image">{{obj | json}}</li>

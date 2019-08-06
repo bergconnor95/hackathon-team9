@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClientService } from '../service/http-client.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,11 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private route: Router) { }
+  image:any
+
+  constructor(
+    private httpClientService: HttpClientService,
+    private route: Router) { }
 
   ngOnInit() {
   }
@@ -16,6 +21,16 @@ export class HomeComponent implements OnInit {
   playGame = () => {
     console.log('I was clicked!');
     this.route.navigate(['game'])
+  }
+
+  getImages = () => {
+    this.httpClientService.getImages().subscribe(
+      response =>this.handleSuccessfulResponse(response)
+     );
+  }
+
+  handleSuccessfulResponse(response) {
+    this.image = response;
   }
 
 }
