@@ -71,3 +71,9 @@ button {
   font-size: 15px;
   margin-left: 20px;
 }
+
+.progressBar {
+  width:100px;
+  height:100px;
+  background:red;
+}

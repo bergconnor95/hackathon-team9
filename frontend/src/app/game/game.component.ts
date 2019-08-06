@@ -9,6 +9,7 @@ import { ModalService } from '../services/modal.service';
 export class GameComponent implements OnInit {
 
   unlocked: boolean = false;
+  height = 100;
 
   constructor(private modalService: ModalService) { }
 
@@ -36,5 +37,15 @@ export class GameComponent implements OnInit {
   //     document.getElementById('happy-meal').src == 'happy-meal.png'
   //   }
   // }
+
+  expandBar() {
+    console.log(document.getElementById('progressBar').style.height);
+    this.height += 100;
+    document.getElementById('progressBar').style.height = this.height+'px';
+
+    // height += 100;
+    // console.log(height);
+    // document.getElementById('progressBar').style.height = '400px';
+  }
 
 }
