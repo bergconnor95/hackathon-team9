@@ -1,10 +1,14 @@
 import { Component, OnInit, ViewChild, HostListener, Input, AfterViewInit, Host } from '@angular/core';
 import { interval, timer } from 'rxjs';
 import { ModalService } from '../services/modal.service';
+<<<<<<< HEAD
 import { map } from 'rxjs/operators';
 import { MapComponent } from '../map/map.component';
 import { KeyEventsPlugin } from '@angular/platform-browser/src/dom/events/key_events';
 import { KEY_CODE } from '../button-click/button-click.component';
+=======
+import { Router } from '@angular/router';
+>>>>>>> master
 
 @Component({
   selector: 'app-game',
@@ -13,6 +17,7 @@ import { KEY_CODE } from '../button-click/button-click.component';
 })
 export class GameComponent implements OnInit, AfterViewInit {
 
+<<<<<<< HEAD
   unlocked: boolean = false;
   height = 100;
   counter = 0;
@@ -22,8 +27,25 @@ export class GameComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MapComponent)
   mapComp: MapComponent;
+=======
+  gumUnlocked: boolean = false;
+  musicUnlocked: boolean = false;
+  happyMealUnlocked: boolean = false;
+  cubeUnlocked: boolean = false;
+  movieUnlocked: boolean = false;
+  dotUnlocked: boolean = false;
+  concertUnlocked: boolean = false;
+>>>>>>> master
 
-  constructor(private modalService: ModalService) { }
+  // modalUnlocked: boolean = false;
+
+  moneyEarned = 0.00;
+  itemToDisplay = 'Gum';
+
+  height = 10;
+
+  constructor(private modalService: ModalService,
+    private route: Router) { }
 
   ngAfterViewInit(){
     this.rate = this.mapComp.rate;
@@ -58,13 +80,15 @@ export class GameComponent implements OnInit, AfterViewInit {
     // document.body.style.backgroundColor='gray';
   }
 
-  keepPlaying() {
-    document.getElementById("modal").style.display="none";
-    this.unlocked = true;
+  keepPlaying(name: string) {
+    document.getElementById(name+"Modal").style.display="none";
+    this.gumUnlocked = true;
   }
 
-  spendMoney() {
-    console.log('spending my money and closing out now.')
+  spendMoney(name:string) {
+    document.getElementById(name+"Modal").style.display="none";
+    console.log('spending my money and closing out now.');
+    document.getElementById("spentModal").style.display="block";
   }
 
   // changeImage(id: string) {
@@ -74,13 +98,37 @@ export class GameComponent implements OnInit, AfterViewInit {
   // }
 
   expandBar() {
-    console.log(document.getElementById('progressBar').style.height);
-    this.height += 100;
+    this.moneyEarned += 0.04;
+
+    console.log(this.moneyEarned);
+    this.height += 10;
     document.getElementById('progressBar').style.height = this.height+'px';
 
-    // height += 100;
-    // console.log(height);
-    // document.getElementById('progressBar').style.height = '400px';
+    if(this.moneyEarned >= 50) {
+      this.concertUnlocked = true;
+      document.getElementById("concertModal").style.display="block";
+    }else if(this.moneyEarned >= 25.00 && this.moneyEarned <= 25.04) {
+      this.dotUnlocked = true;
+      document.getElementById("dotModal").style.display="block";
+    }else if(this.moneyEarned >= 13.00 && this.moneyEarned <= 13.04) {
+      this.movieUnlocked = true;
+      document.getElementById("movieModal").style.display="block";
+    }else if(this.moneyEarned >= 5.00 && this.moneyEarned <=5.04) {
+      this.cubeUnlocked = true;
+      document.getElementById("cubeModal").style.display="block";
+    }else if(this.moneyEarned >= 3.00 && this.moneyEarned <= 3.02) {
+      this.happyMealUnlocked = true;      
+      document.getElementById("happyMealModal").style.display="block";
+    }else if(this.moneyEarned >= 0.99 && this.moneyEarned <= 1.03) {
+      this.musicUnlocked = true;
+      document.getElementById("musicModal").style.display="block";
+    }else if(this.moneyEarned >= 0.25 && this.moneyEarned <= 0.28) {
+      this.gumUnlocked = true;
+      document.getElementById("gumModal").style.display="block";
+    }
   }
 
+  goHome() {
+    this.route.navigate(['home'])
+  }
 }

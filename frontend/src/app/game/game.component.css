@@ -1,12 +1,16 @@
-.progressBar{
+* {
+  font-family:verdana;
+}
+
+/* .progressBar{ */
   /*background-color: black;*/
-  border: 1px solid black;
+  /* border: 1px solid black;
   width: 20%;
   height: 600px;
   transform: rotate(180deg);
-  margin: auto;
+  margin: auto; */
+/* } */
 
-}
 .Thirds{
   border: 1px solid black;
   height:1000px;
@@ -23,7 +27,7 @@
   display: none;
   top: 0; left: 0; right: 0; bottom: 0;
   /* opacity: 0; */
-  z-index: 9;
+  z-index: 90;
   /* margin: 0; */
   /* padding: 0; */
   /* min-height: 100%; */
@@ -66,14 +70,37 @@
 }
 
 button {
+  cursor: pointer;
   padding: 10px;
   border-radius: 15px;
   font-size: 15px;
   margin-left: 20px;
 }
 
+.earnBtn {
+  width: 250px;
+  height: 50px;
+  background-color: #4A90E2;
+  border: none;
+  color: white;
+  font-size: 25px;
+}
+
 .progressBar {
+  /* position: absolute; */
   width:100px;
   height:100px;
   background:red;
+}
+
+.stay {
+  width: 90px;
+  position: absolute;
+  bottom: 0;
+  height:20px;
+  background-color: #72AE2D;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  /* overflow: auto; */
 }

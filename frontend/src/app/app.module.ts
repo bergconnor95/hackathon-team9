@@ -11,7 +11,6 @@ import { GameComponent } from './game/game.component';
 import { HomeComponent } from './home/home.component';
 import { ButtonClickComponent } from './button-click/button-click.component';
 import { TimerComponent } from './timer/timer.component';
-import { CountdownModule } from 'ngx-countdown';
 import { ImageComponent } from './image/image.component';
 import { HttpClientService } from './service/http-client.service';
 import { ModalComponent } from './modal/modal.component';
