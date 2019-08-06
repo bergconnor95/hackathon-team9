@@ -1,10 +1,12 @@
 .progressBar{
-  /*background-color: black;*/
+  background-color: black;
   border: 1px solid black;
   width: 20%;
-  height: 600px;
+  height: 100px;
   transform: rotate(180deg);
   margin: auto;
+  bottom:10px;
+  /*display: none;*/
 
 }
 .Thirds{
@@ -16,5 +18,10 @@
 .floor{
   position: fixed;
   bottom: 0px;
-
+}
+#modal{
+  display: none;
+  position: fixed;
+  background-color: darkgoldenrod;
+  left: 50%;
 }
