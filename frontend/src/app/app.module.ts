@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { UsMapModule } from 'angular-us-map';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,13 +12,19 @@ import { HomeComponent } from './home/home.component';
 import { ButtonClickComponent } from './button-click/button-click.component';
 import { TimerComponent } from './timer/timer.component';
 import { CountdownModule } from 'ngx-countdown';
+import { ImageComponent } from './image/image.component';
+import { HttpClientService } from './service/http-client.service';
+import { ModalComponent } from './modal/modal.component';
+import { MapComponent } from './map/map.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'game', component: GameComponent},
   {path: 'button-click', component: ButtonClickComponent},
-  {path: 'timer', component: TimerComponent}
+  {path: 'timer', component: TimerComponent},
+  {path: 'image', component: ImageComponent},
+  {path: 'map', component: MapComponent}
 ];
 
 
@@ -26,12 +34,17 @@ const routes: Routes = [
     GameComponent,
     HomeComponent,
     ButtonClickComponent,
-    TimerComponent
+    TimerComponent,
+    ImageComponent,
+    ModalComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule,
+    UsMapModule
   ],
   providers: [],
   bootstrap: [AppComponent]
