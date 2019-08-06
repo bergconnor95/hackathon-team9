@@ -28,6 +28,9 @@ export class GameComponent implements OnInit {
     private route: Router) { }
 
   ngOnInit() {
+    this.route.routerState.root.queryParams.subscribe(
+      params => console.log('queryParams', params['rate'])
+    );
   }
 
   openModal() {

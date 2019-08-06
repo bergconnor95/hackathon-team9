@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClientService } from '../service/http-client.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-map',
@@ -12,7 +13,8 @@ export class MapComponent {
   rate = 0;
 
   constructor(
-    private httpClientService:HttpClientService
+    private httpClientService:HttpClientService,
+    private router:Router
   ) { }
 
   onMapClick(state) {
@@ -24,6 +26,9 @@ export class MapComponent {
 
   handleSuccessfulResponse(response) {
     this.rate = response;
+    this.router.navigate(['/game'], { queryParams: {
+      rate: this.rate
+    }})
   }
 
 }
