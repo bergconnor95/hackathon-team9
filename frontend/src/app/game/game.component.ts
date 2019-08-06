@@ -63,24 +63,31 @@ export class GameComponent implements OnInit {
 
     if(this.moneyEarned >= 50) {
       this.concertUnlocked = true;
+      document.getElementById("concert").style.visibility="visible";
       document.getElementById("concertModal").style.display="block";
     }else if(this.moneyEarned >= 25.00 && this.moneyEarned <= 25.04) {
       this.dotUnlocked = true;
+      document.getElementById("dot").style.visibility="visible";
       document.getElementById("dotModal").style.display="block";
     }else if(this.moneyEarned >= 13.00 && this.moneyEarned <= 13.04) {
       this.movieUnlocked = true;
+      document.getElementById("movie").style.visibility="visible";
       document.getElementById("movieModal").style.display="block";
     }else if(this.moneyEarned >= 5.00 && this.moneyEarned <=5.04) {
       this.cubeUnlocked = true;
+      document.getElementById("cude").style.visibility="visible";
       document.getElementById("cubeModal").style.display="block";
     }else if(this.moneyEarned >= 3.00 && this.moneyEarned <= 3.02) {
-      this.happyMealUnlocked = true;      
+      this.happyMealUnlocked = true;    
+      document.getElementById("happyMeal").style.visibility="visible";  
       document.getElementById("happyMealModal").style.display="block";
     }else if(this.moneyEarned >= 0.99 && this.moneyEarned <= 1.03) {
       this.musicUnlocked = true;
+      document.getElementById("music").style.visibility="visible";
       document.getElementById("musicModal").style.display="block";
     }else if(this.moneyEarned >= 0.25 && this.moneyEarned <= 0.28) {
       this.gumUnlocked = true;
+      document.getElementById("bubbleGum").style.visibility="visible";
       document.getElementById("gumModal").style.display="block";
     }
   }

@@ -104,3 +104,9 @@ button {
   text-align: center;
   /* overflow: auto; */
 }
+
+.itemDescript {
+  margin-bottom: 70px;
+  /* display: none; */
+  visibility: hidden;
+}
