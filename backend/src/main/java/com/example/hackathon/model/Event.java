@@ -1,17 +1,18 @@
 package com.example.hackathon.model;
 
-public class event {
+public class Event {
 	private String name;
 	private String description;
 	private Double amount;
 	private boolean confirmTrigger;
 	private char positive;
+	private int tier;
 	
 	public String getName() {
 		return name;
 	}
 	
-	public string getDescription() {
+	public String getDescription() {
 		return description;
 	}
 	
@@ -25,5 +26,9 @@ public class event {
 	
 	public char getPositive() {
 		return positive;
+	}
+	
+	public int getTier() {
+		return tier;
 	}
 }
