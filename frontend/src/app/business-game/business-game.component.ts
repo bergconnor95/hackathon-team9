@@ -115,7 +115,7 @@ export class BusinessGameComponent implements OnInit{
       this.gumUnlocked= true;
 
       // document.getElementById("concert").style.visibility="visible";
-    }else if(this.moneyEarned >= 25.00) {
+    }else if(this.moneyEarned >= 25.00 && !this.concertUnlocked) {
 
       document.getElementById("situation").innerText=""
       document.getElementById("choiceModal").style.display="block";
