@@ -15,6 +15,7 @@ import { ImageComponent } from './image/image.component';
 import { HttpClientService } from './service/http-client.service';
 import { ModalComponent } from './modal/modal.component';
 import { MapComponent } from './map/map.component';
+import { BusinessGameComponent } from './business-game/business-game.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'button-click', component: ButtonClickComponent},
   {path: 'timer', component: TimerComponent},
   {path: 'image', component: ImageComponent},
-  {path: 'map', component: MapComponent}
+  {path: 'map', component: MapComponent},
+  {path: 'business-game', component: BusinessGameComponent}
 ];
 
 
@@ -36,7 +38,8 @@ const routes: Routes = [
     TimerComponent,
     ImageComponent,
     ModalComponent,
-    MapComponent
+    MapComponent,
+    BusinessGameComponent
   ],
   imports: [
     BrowserModule,

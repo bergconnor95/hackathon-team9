@@ -1,0 +1,88 @@
+<div id="allOfTheEverything">
+
+  <div style="display: flex; flex-direction:row; position: relative; justify-content: space-evenly;" id="bigBox">
+    <div style="flex-direction: column">
+      <div class="event" id="eventseven">
+        <p>You've Zuckerberg'd it!</p>
+        <!--<img *ngIf="!concertUnlocked" alt="" src="../../assets/images/concert-ticket-sil.png" id="concert-ticket" >-->
+        <!--<img *ngIf="concertUnlocked" alt="" src="../../assets/images/concert-ticket.png" id="concert-ticket" style="height: 80px;">-->
+      </div>
+      <div class="event" id="eventsix">
+        <p>Congratulations on your IPO!</p>
+        <!--<img *ngIf="!dotUnlocked" alt="" src="../../assets/images/dot-sil.png" id="dot" style="height: 80px;">-->
+        <!--<img *ngIf="dotUnlocked" alt="" src="../../assets/images/dot.png" id="dot" style="height: 80px;">-->
+      </div>
+      <div class="event" id="eventfive">
+        <p>You've opened a storefront!</p>
+        <!--<img *ngIf="!movieUnlocked" alt="" src="../../assets/images/movie-ticket-sil.png" id="movie-ticket" style="height: 80px;">-->
+        <!--<img *ngIf="movieUnlocked" alt="" src="../../assets/images/movie-ticket.png" id="movie-ticket" style="height: 80px;">-->
+      </div>
+      <div class="event" id="eventfour">
+        <p>Your store has multiple locations!</p>
+        <!--<img *ngIf="!cubeUnlocked" alt="" src="../../assets/images/rubiks-cube-sil.png" id="rubiks-cube" style="height: 80px;">-->
+        <!--<img *ngIf="cubeUnlocked" alt="" src="../../assets/images/rubiks-cube.png" id="rubiks-cube" style="height: 80px;">-->
+      </div>
+      <div class="event" id="eventthree">
+        <p>You've hired your first employees!</p>
+        <!--<img *ngIf="!happyMealUnlocked" alt="" src="../../assets/images/happy-meal-sil.png" id="happy-meal" style="height: 80px;">-->
+        <!--<img *ngIf="happyMealUnlocked" alt="" src="../../assets/images/happy-meal.png" id="happy-meal" style="height: 80px;">-->
+      </div>
+      <div class="event" id="eventtwo">
+        <p>You've opened a home office!</p>
+        <!--<img *ngIf="!musicUnlocked" alt="" src="../../assets/images/music-download-sil.png" id="music-download" style="height: 80px;">-->
+        <!--<img *ngIf="musicUnlocked" alt="" src="../../assets/images/music-download.png" id="music-download" style="height: 80px;">-->
+      </div>
+      <div class="event" id="eventone">
+        <p>You're a budding Entrepreneur!</p>
+        <!--<img *ngIf="!gumUnlocked" alt="" src="../../assets/images/bubble-gum-sil.png" id="gum" style="height: 80px;">-->
+        <!--<img *ngIf="gumUnlocked" alt="" src="../../assets/images/bubble-gum.png" id="gum" style="height: 80px;">-->
+      </div>
+    </div>
+
+    <div style="flex-direction: column">
+      <div class="stay" id="progressBar">
+        {{moneyEarned | number : '1.2-2'}}
+      </div>
+    </div>
+
+    <div style="flex-direction: column;">
+      <!-- <div style="display: flex; flex-direction:column"> -->
+      <p class="itemDescript" id="concert">Concert Ticket - $50.00</p>
+      <p class="itemDescript" id="dot">Dot - $25.00</p>
+      <p class="itemDescript" id="movie">Movie Ticket - $13.00</p>
+      <p class="itemDescript" id="cube">Rubik's Cube - $5.00</p>
+      <p class="itemDescript" id="happyMeal">Happy Meal - $3.00</p>
+      <p class="itemDescript" id="music">Music Download - $0.99</p>
+      <p class="itemDescript" id="bubbleGum">Gum - $0.25</p>
+      <!-- </div> -->
+    </div>
+  </div>
+
+  <div style="margin-top: 20px; text-align: center;">
+    <button class="earnBtn earn" (click)="expandBar()" id="Lt2earn">Tap to Earn!</button>
+    <button class="earnBtn earn" (click)="expandBar()" id="Rt2earn">Tap to Earn!</button>
+  </div>
+
+  <!-- all of the modals below -->
+  <div class="container" id="choiceModal">
+    <div class="content">
+      <h3 style="margin-top: 0;" id="situation"></h3>
+      <p>You can spend your money now or save it. Saving it may have consequences!</p>
+      <div class="buttonContainer">
+        <button (click)="spendItNow( 5 )" style="background-color: #4A90E2; color: white; border: #4A90E2;">Spend Money</button>
+        <button (click)="saveItNow()">Save Money</button>
+      </div>
+    </div>
+  </div>
+  <div class="container" id="startModal">
+    <div class="content">
+      <h3 style="margin-top: 0;">Welcome to your business! A venture capitalist has invested 600 dollars in your dream!</h3>
+      <p>Press start to start!</p>
+      <div class="buttonContainer">
+
+        <button (click)="startGame()">Spend Money</button>
+      </div>
+    </div>
+  </div>
+
+
