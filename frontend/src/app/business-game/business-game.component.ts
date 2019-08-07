@@ -9,10 +9,10 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-game',
-  templateUrl: './game.component.html',
-  styleUrls: ['./game.component.css']
+  templateUrl: './business-game.component.html',
+  styleUrls: ['./business-game.component.css']
 })
-export class GameComponent implements OnInit{
+export class BusinessGameComponent implements OnInit{
 
   unlocked: boolean = false;
   counter = 0;
@@ -35,12 +35,12 @@ export class GameComponent implements OnInit{
 
   moneyEarned = 0.00;
   itemToDisplay = 'Gum';
-
+  cost = 0;
   height = 10;
   boxMargin = 0;
 
   constructor(private modalService: ModalService,
-  private route:Router) {}
+              private route:Router) {}
 
   ngOnInit() {
 
@@ -53,13 +53,13 @@ export class GameComponent implements OnInit{
     // const newCounter = secondsCounter.pipe(map(x => this.rate));
 
     // this.inter = newCounter.subscribe(x => this.moneyEarned += ((Number(x) / 60)));
-    mytimeout.subscribe(n => {
-      if ((this.timeout++) > 1) {
-      } else {
-        
-        this.expandBar();
-      }
-    });
+    // mytimeout.subscribe(n => {
+    //   if ((this.timeout++) > 1) {
+    //   } else {
+    //
+    //     this.expandBar();
+    //   }
+    // });
   }
 
   @HostListener('window:keyup', ['$event'])
@@ -68,7 +68,7 @@ export class GameComponent implements OnInit{
     if (event.keyCode === KEY_CODE.SPACE) {
       this.timeout = 0;
     }
-    
+
   }
 
   openModal() {
@@ -106,37 +106,69 @@ export class GameComponent implements OnInit{
     this.height += this.moneyEarned;
     document.getElementById('progressBar').style.height = this.height+'px';
     //this.lowerView();
-    if(this.moneyEarned >= 50) {
+    if(this.moneyEarned >= 50 && !this.gumUnlocked) {
+      // this.concertUnlocked = true;
+      document.getElementById("situation").innerText="It will cost 600 dollars to set up a website. But you could always just sell in person!";
+      this.cost=600;
+      document.getElementById("choiceModal").style.display="block";
+      document.getElementById("eventseven").style.backgroundColor="none";
+      this.gumUnlocked= true;
+
+      // document.getElementById("concert").style.visibility="visible";
+    }else if(this.moneyEarned >= 25.00) {
+
+      document.getElementById("situation").innerText=""
+      document.getElementById("choiceModal").style.display="block";
+      document.getElementById("eventsix").style.backgroundColor="none";
       this.concertUnlocked = true;
-      document.getElementById("concert").style.visibility="visible";
-      document.getElementById("concertModal").style.display="block";
-    }else if(this.moneyEarned >= 25.00 && this.moneyEarned <= (25.00 + (this.rate/60))) {
-      this.dotUnlocked = true;
-      document.getElementById("dot").style.visibility="visible";
-      document.getElementById("dotModal").style.display="block";
-    }else if(this.moneyEarned >= 13.00 && this.moneyEarned <= (13.00 + (this.rate/60))) {
-      this.movieUnlocked = true;
-      document.getElementById("movie").style.visibility="visible";
-      document.getElementById("movieModal").style.display="block";
-    }else if(this.moneyEarned >= 5.00 && this.moneyEarned <= (5.00 + (this.rate/60))) {
+    }else if(this.moneyEarned >= 13.00 && !this.dotUnlocked) {
+
+      document.getElementById("situation").innerText=""
+      document.getElementById("choiceModal").style.display="block";
+      document.getElementById("eventfive").style.backgroundColor="none";
+      this.dotUnlocked= true;
+    }else if(this.moneyEarned >= 5.00 && this.movieUnlocked) {
+
+      document.getElementById("situation").innerText=""
+      document.getElementById("choiceModal").style.display="block";
+      document.getElementById("eventfour").style.backgroundColor="none";
+      this.movieUnlocked= true;
+    }else if(this.moneyEarned >= 3.00 && this.cubeUnlocked) {
+
+      document.getElementById("situation").innerText=""
+      document.getElementById("choiceModal").style.display="block";
+      document.getElementById("eventthree").style.backgroundColor="none";
       this.cubeUnlocked = true;
-      document.getElementById("cude").style.visibility="visible";
-      document.getElementById("cubeModal").style.display="block";
-    }else if(this.moneyEarned >= 3.00 && this.moneyEarned <= (3.00 + (this.rate/60))) {
-      this.happyMealUnlocked = true;    
-      document.getElementById("happyMeal").style.visibility="visible";  
-      document.getElementById("happyMealModal").style.display="block";
-    }else if(this.moneyEarned >= 0.99 && this.moneyEarned <= (1.00 + (this.rate/60))) {
-      this.musicUnlocked = true;
-      document.getElementById("music").style.visibility="visible";
-      document.getElementById("musicModal").style.display="block";
-    }else if(this.moneyEarned >= 0.25 && this.moneyEarned <= (0.25 + (this.rate/60))) {
-      this.gumUnlocked = true;
-      document.getElementById("bubbleGum").style.visibility="visible";
-      document.getElementById("gumModal").style.display="block";
+    }else if(this.moneyEarned >= 0.99 && !this.happyMealUnlocked) {
+
+      document.getElementById("situation").innerText=""
+      document.getElementById("choiceModal").style.display="block";
+      document.getElementById("eventtwo").style.backgroundColor="none";
+      this.happyMealUnlocked= true;
+    }else if(this.moneyEarned >= 0.25 && !this.musicUnlocked) {
+
+      document.getElementById("situation").innerText=""
+      document.getElementById("choiceModal").style.display="block";
+      document.getElementById("eventone").style.backgroundColor="none";
+      this.musicUnlocked= true;
     }
   }
+  @HostListener('window:keyup', ['$event'])
+  keyEvent(event: KeyboardEvent) {
+    this.expandBar()
+    console.log("keybrodkafjkd")
+  }
+  spendItNow(cost){
+    this.moneyEarned-=cost;
+    document.getElementById("choiceModal").style.display="none";
+  }
+  saveItNow(){
+    this.rate=this.rate*.8;
+    document.getElementById("choiceModal").style.display="none";
+  }
+  startGame(){
 
+  }
   goHome() {
     this.route.navigate(['home']);
   }

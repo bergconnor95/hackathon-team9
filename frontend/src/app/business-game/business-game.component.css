@@ -1,0 +1,137 @@
+* {
+  font-family:verdana;
+}
+
+#allOfTheEverything{
+  /*width: 100%;*/
+  height: 100%;
+  overflow-y: hidden;
+}
+/* .progressBar{ */
+/*background-color: black;*/
+/* border: 1px solid black;
+width: 20%;
+height: 100px;
+transform: rotate(180deg);
+margin: auto; */
+/* } */
+
+.Thirds{
+  border: 1px solid black;
+  height:1000px;
+  width:40%;
+  display: inline;
+}
+.floor{
+  position: absolute;
+  bottom: 0px;
+
+}
+#bigBox{
+  /*height: 1000px;*/
+  pointer-events: none;
+  position: absolute;
+}
+.event{
+  height: 80px;
+  width: 160px;
+  border: 1px solid black;
+  background-color: black;
+}
+.container{
+  display: none;
+  top: 0; left: 0; right: 0; bottom: 0;
+  /* opacity: 0; */
+  /*z-index: 90;*/
+  /* margin: 0; */
+  /* padding: 0; */
+  /* min-height: 100%; */
+  background: rgba(0,0,0,.6);
+  /* padding: 25px; */
+  font-family:verdana;
+  /* margin: auto; */
+  /* width: 100%; */
+  position: fixed;
+}
+
+/* .modal {
+  font-family:verdana;
+  opacity: 0;
+  margin: auto;
+  width: 100%;
+  min-height: 100vh;
+  border-radius: 20px;
+  background-color: gray;
+  text-align: center;
+  z-index: 5;
+} */
+
+.content {
+  background: #fefefe;
+  border: gray solid 1px;
+  border-radius: 5px;
+  width: 500px;
+  /* margin-top:50%;
+  margin-left: 50%; */
+  margin: auto;
+  text-align: left;
+  /* margin-top: 30%; */
+  padding: 20px;
+}
+
+.buttonContainer {
+  text-align: right;
+  padding-top: 40px;
+}
+
+button {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 15px;
+  font-size: 15px;
+  margin-left: 20px;
+
+}
+#Lt2earn{
+  z-index: 91;
+  float: left;
+  width: 100px;
+}
+#Rt2earn{
+  z-index: 91;
+  float: right;
+  width: 100px;
+}
+.earnBtn {
+  width: 250px;
+  height: 50px;
+  background-color: #4A90E2;
+  border: none;
+  color: white;
+  font-size: 15px;
+}
+
+.progressBar {
+  /* position: absolute; */
+  width:100px;
+  height:100px;
+  background:red;
+}
+
+.stay {
+  width: 90px;
+  position: absolute;
+  bottom: 0;
+  height:20px;
+  background-color: #72AE2D;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  /* overflow: auto; */
+}
+
+.itemDescript {
+  margin-bottom: 70px;
+  /* display: none; */
+  visibility: hidden;
+}
