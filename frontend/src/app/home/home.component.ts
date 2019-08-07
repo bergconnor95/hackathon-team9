@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClientService } from '../service/http-client.service';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -16,14 +17,16 @@ export class HomeComponent implements OnInit {
 
   playGame = () => {
     console.log('I was clicked!');
-    this.route.navigate(['game'])
+    this.router.navigate(['/game'], { queryParams: {
+      rate: this.rate
+    }});
   }
 
   stateCode = '';
   rate = 0;
 
   constructor(
-    private route: Router,
+    private router: Router,
     private httpClientService:HttpClientService
   ) { }
 
@@ -38,6 +41,7 @@ export class HomeComponent implements OnInit {
 
   handleSuccessfulResponse(response) {
     this.rate = response;
+    
   }
 
   closeModal() {
