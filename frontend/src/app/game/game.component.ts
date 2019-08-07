@@ -122,13 +122,16 @@ export class GameComponent implements OnInit{
       document.getElementById("cude").style.visibility="visible";
       document.getElementById("cubeModal").style.display="block";
     }else if(this.moneyEarned >= 3.00 && this.moneyEarned <= (3.00 + this.rate)) {
-      this.happyMealUnlocked = true;      
+      this.happyMealUnlocked = true;    
+      document.getElementById("happyMeal").style.visibility="visible";  
       document.getElementById("happyMealModal").style.display="block";
     }else if(this.moneyEarned >= 0.99 && this.moneyEarned <= (1.00 + this.rate)) {
       this.musicUnlocked = true;
+      document.getElementById("music").style.visibility="visible";
       document.getElementById("musicModal").style.display="block";
-    }else if(this.moneyEarned >= 0.25 && this.moneyEarned <= (0.25 + this.rate)) {
+    }else if(this.moneyEarned >= 0.25 && this.moneyEarned <= 0.99) {
       this.gumUnlocked = true;
+      document.getElementById("bubbleGum").style.visibility="visible";
       document.getElementById("gumModal").style.display="block";
     }
   }
