@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class FredController {
 
@@ -26,6 +25,7 @@ public class FredController {
     //Will change from user input - hard coded for now
     private final static String TYPE = new String("series/observations?");
     
+    @CrossOrigin
     @GetMapping(value = "/fred", produces = "application/json")
     public Double getFred(@RequestParam @Size(min = 2, max = 2) String stateCode) {
         ArrayList<String> test = new ArrayList<String>(GetRealWageByState(stateCode));

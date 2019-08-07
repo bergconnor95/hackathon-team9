@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HttpClientService {
 
-  apiURL: string = 'http://localhost:8080';
+  apiURL: string = 'http://ec2-54-173-143-55.compute-1.amazonaws.com';
 
   constructor(private httpClient: HttpClient) { }
 
