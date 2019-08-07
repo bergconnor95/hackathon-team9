@@ -19,6 +19,7 @@ export class GameComponent implements OnInit, AfterViewInit {
   timeout = 0;
   amount = .25;
   rate = 0;
+  inter;
 
   @ViewChild(MapComponent)
   mapComp: MapComponent;
@@ -38,7 +39,7 @@ export class GameComponent implements OnInit, AfterViewInit {
   height = 10;
 
   constructor(private modalService: ModalService,
-    private route: Router) { }
+  private route:Router) {}
 
   ngAfterViewInit(){
     this.rate = this.mapComp.rate;
@@ -46,19 +47,22 @@ export class GameComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-<<<<<<< HEAD
-    const secondsCounter = interval(1000);
-    const mytimeout = interval(1000);
-    const newCounter = secondsCounter.pipe(map(x => this.amount));
 
     this.route.routerState.root.queryParams.subscribe(
       params => this.rate = params['rate']
     );
 
-    newCounter.subscribe(x => this.counter += (x));
+    const secondsCounter = interval(1000);
+    const mytimeout = interval(1000);
+    const newCounter = secondsCounter.pipe(map(x => this.rate));
+
+    newCounter.subscribe(x => this.moneyEarned += (Number(x)));
     mytimeout.subscribe(n => {
       if ((this.timeout++) > 5) {
         this.counter = 0;
+        clearInterval(this.inter);
+      } else {
+        this.expandBar();
       }
     });
   }
@@ -69,15 +73,7 @@ export class GameComponent implements OnInit, AfterViewInit {
     if (event.keyCode === KEY_CODE.SPACE) {
       this.timeout = 0;
     }
-<<<<<<< HEAD
-=======
-    this.route.routerState.root.queryParams.subscribe(
-      params => console.log('queryParams', params['rate'])
-    );
->>>>>>> f3a78b9bfb19f57d155a625ea3e0873e76eabd99
-=======
     
->>>>>>> tyler
   }
 
   openModal() {
@@ -105,10 +101,10 @@ export class GameComponent implements OnInit, AfterViewInit {
   // }
 
   expandBar() {
-    this.moneyEarned += 0.04;
+    // this.moneyEarned += 0.04;
 
     console.log(this.moneyEarned);
-    this.height += 10;
+    this.height += this.moneyEarned;
     document.getElementById('progressBar').style.height = this.height+'px';
 
     if(this.moneyEarned >= 50) {
