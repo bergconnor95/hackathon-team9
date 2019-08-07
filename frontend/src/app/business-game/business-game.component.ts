@@ -20,7 +20,6 @@ export class BusinessGameComponent implements OnInit{
   amount = .25;
   rate = 0;
   cost = 0;
-  startingCash = 0;
 
   gumUnlocked: boolean = false;
   musicUnlocked: boolean = false;
@@ -47,10 +46,9 @@ export class BusinessGameComponent implements OnInit{
       params => this.rate = params['rate']
     );
     this.router.routerState.root.queryParams.subscribe(
-      params => this.startingCash = params['earned']
+      params => this.moneyEarned = Number(params['earned'])
     );
 
-    //this.moneyEarned = this.startingCash;
 
     const mytimeout = interval(1000);
     mytimeout.subscribe(n => {
