@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css']
 })
-export class GameComponent implements OnInit, AfterViewInit {
+export class GameComponent implements OnInit{
 
   unlocked: boolean = false;
   counter = 0;
@@ -41,27 +41,21 @@ export class GameComponent implements OnInit, AfterViewInit {
   constructor(private modalService: ModalService,
   private route:Router) {}
 
-  ngAfterViewInit(){
-    this.rate = this.mapComp.rate;
-    console.log(this.rate);
-  }
-
   ngOnInit() {
 
     this.route.routerState.root.queryParams.subscribe(
       params => this.rate = params['rate']
     );
 
-    const secondsCounter = interval(1000);
+    // const secondsCounter = interval(1000);
     const mytimeout = interval(1000);
-    const newCounter = secondsCounter.pipe(map(x => this.rate));
+    // const newCounter = secondsCounter.pipe(map(x => this.rate));
 
-    newCounter.subscribe(x => this.moneyEarned += (Number(x)));
+    // this.inter = newCounter.subscribe(x => this.moneyEarned += ((Number(x) / 60)));
     mytimeout.subscribe(n => {
-      if ((this.timeout++) > 5) {
-        this.counter = 0;
-        clearInterval(this.inter);
+      if ((this.timeout++) > 1) {
       } else {
+        
         this.expandBar();
       }
     });
@@ -101,9 +95,7 @@ export class GameComponent implements OnInit, AfterViewInit {
   // }
 
   expandBar() {
-    // this.moneyEarned += 0.04;
-
-    console.log(this.moneyEarned);
+    this.moneyEarned += (this.rate / 60);
     this.height += this.moneyEarned;
     document.getElementById('progressBar').style.height = this.height+'px';
 
@@ -132,6 +124,6 @@ export class GameComponent implements OnInit, AfterViewInit {
   }
 
   goHome() {
-    this.route.navigate(['home'])
+    this.route.navigate(['home']);
   }
 }
