@@ -34,8 +34,9 @@
 
   <div style="flex-direction: column">
     <div class="stay" id="progressBar">
-        {{moneyEarned | number : '1.2-2'}}
+        <!-- {{moneyEarned | number : '1.2-2'}} -->
     </div>
+    <!-- <p style="color: black;">{{moneyEarned | number : '1.2-2'}}</p> -->
   </div>
 
   <div style="flex-direction: column;">
@@ -52,8 +53,9 @@
 </div>
 
 <div style="margin-top: 20px; text-align: center;">
-  <button class="earnBtn earn" (click)="expandBar()" id="Lt2earn">Tap to Earn!</button>
-  <button class="earnBtn earn" (click)="expandBar()" id="Rt2earn">Tap to Earn!</button>
+  <!-- <button class="earnBtn earn" (click)="expandBar()" id="Lt2earn">Tap to Earn!</button>
+  <button class="earnBtn earn" (click)="expandBar()" id="Rt2earn">Tap to Earn!</button> -->
+  <div style="color: black;">Money Earned: {{moneyEarned | number : '1.2-2'}}</div>
 </div>
 
 <!-- all of the modals below -->
@@ -138,3 +140,4 @@
   </div>
 </div>
 
+</div>

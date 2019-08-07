@@ -1,6 +1,7 @@
-<div id="allOfTheEverything">
+<div id="allOfTheEverything" style="display: flex; flex-direction:column; text-align: center;">
+  <h1>Business Game (To Be Developed)</h1>
 
-  <div style="display: flex; flex-direction:row; position: relative; justify-content: space-evenly;" id="bigBox">
+  <div style="display: flex; flex-direction:row; position: relative; justify-content: space-evenly; height: 500px;" id="bigBox">
     <div style="flex-direction: column">
       <div class="event" id="eventseven">
         <p>You've Zuckerberg'd it!</p>
@@ -27,11 +28,11 @@
 
     <div style="flex-direction: column">
       <div class="stay" id="progressBar">
-        {{moneyEarned | number : '1.2-2'}}
+        <!-- {{moneyEarned | number : '1.2-2'}} -->
       </div>
     </div>
 
-    <!-- <div style="flex-direction: column;">
+    <div style="flex-direction: column;">
       <p class="itemDescript" id="concert">Concert Ticket - $50.00</p>
       <p class="itemDescript" id="dot">Dot - $25.00</p>
       <p class="itemDescript" id="movie">Movie Ticket - $13.00</p>
@@ -39,13 +40,14 @@
       <p class="itemDescript" id="happyMeal">Happy Meal - $3.00</p>
       <p class="itemDescript" id="music">Music Download - $0.99</p>
       <p class="itemDescript" id="bubbleGum">Gum - $0.25</p>
-    </div> -->
+    </div>
   </div>
 
   <div style="display: flex; flex-direction: row; justify-content: space-evenly; margin-top: 20px; text-align: center;">
-    <button class="earnBtn earn" (click)="expandBar()" id="Lt2earn">Tap to Earn!</button>
-    <h3>Business Game (tbd)</h3>
-    <button class="earnBtn earn" (click)="expandBar()" id="Rt2earn">Tap to Earn!</button>
+    <!-- <p><strong>Note:</strong> Business Game (tbd)</p> -->
+    <div style="color: black;">Money Earned: {{moneyEarned | number : '1.2-2'}}</div>
+    <!-- <div><p class="itemDescript" id="bubbleGum">Gum - $0.25</p></div>  -->
+    <!-- ^ just to keep placement -->
   </div>
 
   <!-- all of the modals below -->
