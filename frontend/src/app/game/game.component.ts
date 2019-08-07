@@ -120,7 +120,7 @@ export class GameComponent implements OnInit{
       document.getElementById("movieModal").style.display="block";
     }else if(this.moneyEarned >= 5.00 && this.moneyEarned <= (5.00 + (this.rate/60))) {
       this.cubeUnlocked = true;
-      document.getElementById("cude").style.visibility="visible";
+      document.getElementById("cube").style.visibility="visible";
       document.getElementById("cubeModal").style.display="block";
     }else if(this.moneyEarned >= 3.00 && this.moneyEarned <= (3.00 + (this.rate/60))) {
       this.happyMealUnlocked = true;    
