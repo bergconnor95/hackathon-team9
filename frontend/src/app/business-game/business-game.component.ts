@@ -107,7 +107,7 @@ export class BusinessGameComponent implements OnInit{
       document.getElementById("choiceModal").style.display="block";
       document.getElementById("eventseven").style.backgroundColor="none";
       // document.getElementById("concert").style.visibility="visible";
-    }else if(this.moneyEarned >= 25.00) {
+    }else if(this.moneyEarned >= 25.00 && !this.concertUnlocked) {
 
       document.getElementById("situation").innerText=""
       document.getElementById("choiceModal").style.display="block";
