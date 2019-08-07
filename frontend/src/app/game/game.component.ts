@@ -16,9 +16,11 @@ export class GameComponent implements OnInit{
 
   unlocked: boolean = false;
   counter = 0;
+  secondsPast = 0;
   timeout = 0;
   amount = .25;
   rate = 0;
+  companyEarnings = 0;
 
   gumUnlocked: boolean = false;
   musicUnlocked: boolean = false;
@@ -50,6 +52,7 @@ export class GameComponent implements OnInit{
       if ((this.timeout++) > 1) {
       } else {
         this.expandBar();
+        this.secondsPast += 1
       }
     });
   }
@@ -80,8 +83,10 @@ export class GameComponent implements OnInit{
     console.log('spending my money and closing out now.');
     document.getElementById("spentModal").style.display="block";
 
+    this.companyEarnings = (this.counter / this.secondsPast);
+
     this.router.navigate(['/business-game'], { queryParams: {
-      rate: this.rate
+      rate: this.companyEarnings, earned: this.moneyEarned
     }});
 
   }
