@@ -38,11 +38,11 @@ export class BusinessGameComponent implements OnInit{
   boxMargin = 0;
 
   constructor(private modalService: ModalService,
-              private route:Router) {}
+              private router:Router) {}
 
   ngOnInit() {
 
-    this.route.routerState.root.queryParams.subscribe(
+    this.router.routerState.root.queryParams.subscribe(
       params => this.rate = params['rate']
     );
 
@@ -100,51 +100,43 @@ export class BusinessGameComponent implements OnInit{
     this.height += this.moneyEarned;
     document.getElementById('progressBar').style.height = this.height+'px';
     //this.lowerView();
-    if(this.moneyEarned >= 50 && !this.gumUnlocked) {
+    if(this.moneyEarned >= 50) {
       // this.concertUnlocked = true;
       document.getElementById("situation").innerText="It will cost 600 dollars to set up a website. But you could always just sell in person!";
       this.cost=600;
       document.getElementById("choiceModal").style.display="block";
       document.getElementById("eventseven").style.backgroundColor="none";
-      this.gumUnlocked= true;
-
       // document.getElementById("concert").style.visibility="visible";
     }else if(this.moneyEarned >= 25.00) {
 
       document.getElementById("situation").innerText=""
       document.getElementById("choiceModal").style.display="block";
       document.getElementById("eventsix").style.backgroundColor="none";
-      this.concertUnlocked = true;
-    }else if(this.moneyEarned >= 13.00 && !this.dotUnlocked) {
+    }else if(this.moneyEarned >= 13.00) {
 
       document.getElementById("situation").innerText=""
       document.getElementById("choiceModal").style.display="block";
       document.getElementById("eventfive").style.backgroundColor="none";
-      this.dotUnlocked= true;
-    }else if(this.moneyEarned >= 5.00 && this.movieUnlocked) {
+    }else if(this.moneyEarned >= 5.00) {
 
       document.getElementById("situation").innerText=""
       document.getElementById("choiceModal").style.display="block";
       document.getElementById("eventfour").style.backgroundColor="none";
-      this.movieUnlocked= true;
-    }else if(this.moneyEarned >= 3.00 && this.cubeUnlocked) {
+    }else if(this.moneyEarned >= 3.00) {
 
       document.getElementById("situation").innerText=""
       document.getElementById("choiceModal").style.display="block";
       document.getElementById("eventthree").style.backgroundColor="none";
-      this.cubeUnlocked = true;
-    }else if(this.moneyEarned >= 0.99 && !this.happyMealUnlocked) {
+    }else if(this.moneyEarned >= 0.99) {
 
       document.getElementById("situation").innerText=""
       document.getElementById("choiceModal").style.display="block";
       document.getElementById("eventtwo").style.backgroundColor="none";
-      this.happyMealUnlocked= true;
-    }else if(this.moneyEarned >= 0.25 && !this.musicUnlocked) {
+    }else if(this.moneyEarned >= 0.25) {
 
       document.getElementById("situation").innerText=""
       document.getElementById("choiceModal").style.display="block";
       document.getElementById("eventone").style.backgroundColor="none";
-      this.musicUnlocked= true;
     }
   }
 
@@ -160,6 +152,6 @@ export class BusinessGameComponent implements OnInit{
 
   }
   goHome() {
-    this.route.navigate(['home']);
+    this.router.navigate(['home']);
   }
 }
