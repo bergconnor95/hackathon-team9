@@ -19,10 +19,8 @@ export class BusinessGameComponent implements OnInit{
   timeout = 0;
   amount = .25;
   rate = 0;
-  inter;
+  cost = 0;
 
-  @ViewChild(MapComponent)
-  mapComp: MapComponent;
   gumUnlocked: boolean = false;
   musicUnlocked: boolean = false;
   happyMealUnlocked: boolean = false;
@@ -35,37 +33,33 @@ export class BusinessGameComponent implements OnInit{
 
   moneyEarned = 0.00;
   itemToDisplay = 'Gum';
-  cost = 0;
+
   height = 10;
   boxMargin = 0;
 
   constructor(private modalService: ModalService,
-              private route:Router) {}
+              private router:Router) {}
 
   ngOnInit() {
 
-    this.route.routerState.root.queryParams.subscribe(
+    this.router.routerState.root.queryParams.subscribe(
       params => this.rate = params['rate']
     );
 
-    // const secondsCounter = interval(1000);
     const mytimeout = interval(1000);
-    // const newCounter = secondsCounter.pipe(map(x => this.rate));
-
-    // this.inter = newCounter.subscribe(x => this.moneyEarned += ((Number(x) / 60)));
-    // mytimeout.subscribe(n => {
-    //   if ((this.timeout++) > 1) {
-    //   } else {
-    //
-    //     this.expandBar();
-    //   }
-    // });
+    mytimeout.subscribe(n => {
+      if ((this.timeout++) > 1) {
+      } else {
+        this.expandBar();
+      }
+    });
   }
 
   @HostListener('window:keyup', ['$event'])
   KeyEventsPlugin(event: KeyboardEvent) {
     console.log(event);
     if (event.keyCode === KEY_CODE.SPACE) {
+      this.counter += 1;
       this.timeout = 0;
     }
 
@@ -101,7 +95,7 @@ export class BusinessGameComponent implements OnInit{
     document.getElementById("Lt2earn").style.marginTop = '-'+this.boxMargin+'px';
     document.getElementById("Rt2earn").style.marginTop = '-'+this.boxMargin+'px';
   }
-  expandBar() {;
+  expandBar() {
     this.moneyEarned += (this.rate/60);
     this.height += this.moneyEarned;
     document.getElementById('progressBar').style.height = this.height+'px';
@@ -113,7 +107,7 @@ export class BusinessGameComponent implements OnInit{
       document.getElementById("choiceModal").style.display="block";
       document.getElementById("eventseven").style.backgroundColor="none";
       // document.getElementById("concert").style.visibility="visible";
-    }else if(this.moneyEarned >= 25.00) {
+    }else if(this.moneyEarned >= 25.00 && !this.concertUnlocked) {
 
       document.getElementById("situation").innerText=""
       document.getElementById("choiceModal").style.display="block";
@@ -145,11 +139,7 @@ export class BusinessGameComponent implements OnInit{
       document.getElementById("eventone").style.backgroundColor="none";
     }
   }
-  @HostListener('window:keyup', ['$event'])
-  keyEvent(event: KeyboardEvent) {
-    this.expandBar()
-    console.log("keybrodkafjkd")
-  }
+
   spendItNow(cost){
     this.moneyEarned-=cost;
     document.getElementById("choiceModal").style.display="none";
@@ -162,6 +152,6 @@ export class BusinessGameComponent implements OnInit{
 
   }
   goHome() {
-    this.route.navigate(['home']);
+    this.router.navigate(['home']);
   }
 }
