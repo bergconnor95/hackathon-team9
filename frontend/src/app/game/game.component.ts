@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import { ModalService } from '../services/modal.service';
 import { Router } from '@angular/router';
+import {KEY_CODE} from "../button-click/button-click.component";
 
 @Component({
   selector: 'app-game',
@@ -23,12 +24,19 @@ export class GameComponent implements OnInit {
   itemToDisplay = 'Gum';
 
   height = 10;
+  boxMargin = 0;
 
   constructor(private modalService: ModalService,
     private route: Router) { }
 
   ngOnInit() {
+    console.log("the page has been loaded")
+    // setInterval( scroll, 1)
+
+
+  window.scrollTo(0,document.body.scrollHeight);
   }
+
 
   openModal() {
     console.log('I opened modal!');
@@ -53,14 +61,21 @@ export class GameComponent implements OnInit {
   //     document.getElementById('happy-meal').src == 'happy-meal.png'
   //   }
   // }
-
+  lowerView(){
+    // console.log("bro!")
+    this.boxMargin += 10;
+    document.getElementById('bigBox').style.marginTop = this.boxMargin+'px';
+    document.getElementById("Lt2earn").style.marginTop = '-'+this.boxMargin+'px';
+    document.getElementById("Rt2earn").style.marginTop = '-'+this.boxMargin+'px';
+  }
   expandBar() {
     this.moneyEarned += 0.04;
+    window.scrollTo(0,0);
 
     console.log(this.moneyEarned);
     this.height += 10;
     document.getElementById('progressBar').style.height = this.height+'px';
-
+    this.lowerView()
     if(this.moneyEarned >= 50) {
       this.concertUnlocked = true;
       document.getElementById("concertModal").style.display="block";
@@ -74,7 +89,7 @@ export class GameComponent implements OnInit {
       this.cubeUnlocked = true;
       document.getElementById("cubeModal").style.display="block";
     }else if(this.moneyEarned >= 3.00 && this.moneyEarned <= 3.02) {
-      this.happyMealUnlocked = true;      
+      this.happyMealUnlocked = true;
       document.getElementById("happyMealModal").style.display="block";
     }else if(this.moneyEarned >= 0.99 && this.moneyEarned <= 1.03) {
       this.musicUnlocked = true;
@@ -84,7 +99,10 @@ export class GameComponent implements OnInit {
       document.getElementById("gumModal").style.display="block";
     }
   }
-
+  @HostListener('window:keyup', ['$event'])
+  keyEvent(event: KeyboardEvent) {
+    this.expandBar()
+  }
   goHome() {
     this.route.navigate(['home'])
   }
