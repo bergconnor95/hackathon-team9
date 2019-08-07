@@ -1,13 +1,11 @@
 import { Component, OnInit, ViewChild, HostListener, Input, AfterViewInit, Host } from '@angular/core';
 import { interval, timer } from 'rxjs';
-import {Component, HostListener, OnInit} from '@angular/core';
 import { ModalService } from '../services/modal.service';
 import { map } from 'rxjs/operators';
 import { MapComponent } from '../map/map.component';
 import { KeyEventsPlugin } from '@angular/platform-browser/src/dom/events/key_events';
 import { KEY_CODE } from '../button-click/button-click.component';
 import { Router } from '@angular/router';
-import {KEY_CODE} from "../button-click/button-click.component";
 
 @Component({
   selector: 'app-game',
