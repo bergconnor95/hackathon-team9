@@ -28,7 +28,6 @@ public class OpportunitiesController {
 		System.out.println("Amount of cash?");
 		double temp = scan.nextInt();
 		Event event = RNJesus(temp);
-		System.out.println(event.getName() + " " + event.getDescription());
 	}
 	
 	@GetMapping(value = "/user-test", produces = "application/json")
@@ -41,12 +40,12 @@ public class OpportunitiesController {
 	}
 	
 	public Event RNJesus(Double currentCash) throws ClassNotFoundException, SQLException {
-		Random random = new Random();
-		if (random.nextInt() % 5 == 0) {
+//		Random random = new Random();
+//		if (random.nextInt() % 5 == 0) {
 			return dbc.getEvent(findTier(currentCash));
-		} else {
-			return new Event();
-		}
+//		} else {
+//			return new Event();
+//		}
 	}
 	
 	public int findTier(double currentCash) {

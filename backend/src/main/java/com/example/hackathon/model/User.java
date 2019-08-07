@@ -29,11 +29,11 @@ public class User {
 		return password;
 	}
 	
-	private double getRate() {
+	public double getRate() {
 		return rate;
 	}
 	
-	private double getCash() {
+	public double getCash() {
 		return cash;
 	}
 	

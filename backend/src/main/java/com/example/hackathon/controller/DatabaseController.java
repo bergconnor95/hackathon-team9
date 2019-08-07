@@ -28,11 +28,9 @@ public class DatabaseController {
 	UserRepository userRepository;
 	
 	public Event getEvent(int tier) throws ClassNotFoundException, SQLException {
-		System.out.println(tier);
 		List<Event> eventList = eventRepository.findByTier(tier);
 		Random random = new Random();
 		Event event = eventList.get(random.nextInt(eventList.size()));
-		System.out.println(event.toString());
 		return event;
 	}
 	
