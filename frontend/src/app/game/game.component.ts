@@ -19,10 +19,7 @@ export class GameComponent implements OnInit{
   timeout = 0;
   amount = .25;
   rate = 0;
-  inter;
 
-  @ViewChild(MapComponent)
-  mapComp: MapComponent;
   gumUnlocked: boolean = false;
   musicUnlocked: boolean = false;
   happyMealUnlocked: boolean = false;
@@ -40,23 +37,18 @@ export class GameComponent implements OnInit{
   boxMargin = 0;
 
   constructor(private modalService: ModalService,
-  private route:Router) {}
+  private router:Router) {}
 
   ngOnInit() {
 
-    this.route.routerState.root.queryParams.subscribe(
+    this.router.routerState.root.queryParams.subscribe(
       params => this.rate = params['rate']
     );
 
-    // const secondsCounter = interval(1000);
     const mytimeout = interval(1000);
-    // const newCounter = secondsCounter.pipe(map(x => this.rate));
-
-    // this.inter = newCounter.subscribe(x => this.moneyEarned += ((Number(x) / 60)));
     mytimeout.subscribe(n => {
       if ((this.timeout++) > 1) {
       } else {
-        
         this.expandBar();
       }
     });
@@ -66,9 +58,9 @@ export class GameComponent implements OnInit{
   KeyEventsPlugin(event: KeyboardEvent) {
     console.log(event);
     if (event.keyCode === KEY_CODE.SPACE) {
+      this.counter += 1;
       this.timeout = 0;
     }
-    
   }
 
   openModal() {
@@ -87,6 +79,11 @@ export class GameComponent implements OnInit{
     document.getElementById(name+"Modal").style.display="none";
     console.log('spending my money and closing out now.');
     document.getElementById("spentModal").style.display="block";
+
+    this.router.navigate(['/business-game'], { queryParams: {
+      rate: this.rate
+    }});
+
   }
 
   // changeImage(id: string) {
@@ -101,7 +98,7 @@ export class GameComponent implements OnInit{
     document.getElementById("Lt2earn").style.marginTop = '-'+this.boxMargin+'px';
     document.getElementById("Rt2earn").style.marginTop = '-'+this.boxMargin+'px';
   }
-  expandBar() {;
+  expandBar() {
     this.moneyEarned += (this.rate/60);
     this.height += this.moneyEarned;
     document.getElementById('progressBar').style.height = this.height+'px';
