@@ -37,6 +37,7 @@ export class GameComponent implements OnInit{
   itemToDisplay = 'Gum';
 
   height = 10;
+  boxMargin = 0;
 
   constructor(private modalService: ModalService,
   private route:Router) {}
@@ -100,36 +101,36 @@ export class GameComponent implements OnInit{
     document.getElementById("Lt2earn").style.marginTop = '-'+this.boxMargin+'px';
     document.getElementById("Rt2earn").style.marginTop = '-'+this.boxMargin+'px';
   }
-  expandBar() {
-    this.moneyEarned += (this.rate / 60);
+  expandBar() {;
+    this.moneyEarned += (this.rate/60);
     this.height += this.moneyEarned;
     document.getElementById('progressBar').style.height = this.height+'px';
-    this.lowerView()
+    //this.lowerView();
     if(this.moneyEarned >= 50) {
       this.concertUnlocked = true;
       document.getElementById("concert").style.visibility="visible";
       document.getElementById("concertModal").style.display="block";
-    }else if(this.moneyEarned >= 25.00 && this.moneyEarned <= (25.00 + this.rate)) {
+    }else if(this.moneyEarned >= 25.00 && this.moneyEarned <= (25.00 + (this.rate/60))) {
       this.dotUnlocked = true;
       document.getElementById("dot").style.visibility="visible";
       document.getElementById("dotModal").style.display="block";
-    }else if(this.moneyEarned >= 13.00 && this.moneyEarned <= (13.00 + this.rate)) {
+    }else if(this.moneyEarned >= 13.00 && this.moneyEarned <= (13.00 + (this.rate/60))) {
       this.movieUnlocked = true;
       document.getElementById("movie").style.visibility="visible";
       document.getElementById("movieModal").style.display="block";
-    }else if(this.moneyEarned >= 5.00 && this.moneyEarned <= (5.00 + this.rate)) {
+    }else if(this.moneyEarned >= 5.00 && this.moneyEarned <= (5.00 + (this.rate/60))) {
       this.cubeUnlocked = true;
       document.getElementById("cude").style.visibility="visible";
       document.getElementById("cubeModal").style.display="block";
-    }else if(this.moneyEarned >= 3.00 && this.moneyEarned <= (3.00 + this.rate)) {
+    }else if(this.moneyEarned >= 3.00 && this.moneyEarned <= (3.00 + (this.rate/60))) {
       this.happyMealUnlocked = true;    
       document.getElementById("happyMeal").style.visibility="visible";  
       document.getElementById("happyMealModal").style.display="block";
-    }else if(this.moneyEarned >= 0.99 && this.moneyEarned <= (1.00 + this.rate)) {
+    }else if(this.moneyEarned >= 0.99 && this.moneyEarned <= (1.00 + (this.rate/60))) {
       this.musicUnlocked = true;
       document.getElementById("music").style.visibility="visible";
       document.getElementById("musicModal").style.display="block";
-    }else if(this.moneyEarned >= 0.25 && this.moneyEarned <= 0.99) {
+    }else if(this.moneyEarned >= 0.25 && this.moneyEarned <= (0.25 + (this.rate/60))) {
       this.gumUnlocked = true;
       document.getElementById("bubbleGum").style.visibility="visible";
       document.getElementById("gumModal").style.display="block";
