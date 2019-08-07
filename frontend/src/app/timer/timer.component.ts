@@ -1,8 +1,10 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener, Input, AfterViewInit } from '@angular/core';
 import { interval, timer } from 'rxjs';
 import { KeyEventsPlugin } from '@angular/platform-browser/src/dom/events/key_events';
 import { KEY_CODE } from '../button-click/button-click.component';
 import { map } from 'rxjs/operators';
+import { MapComponent } from '../map/map.component';
+import { Router } from '@angular/router'
 
 
 
@@ -11,22 +13,37 @@ import { map } from 'rxjs/operators';
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.css']
 })
-export class TimerComponent implements OnInit {
+export class TimerComponent implements OnInit, AfterViewInit {
 
   counter = 0;
   timeout = 0;
   amount = .25;
+  rate = 0;
 
-  constructor() {
+  @ViewChild(MapComponent) 
+  mapComp: MapComponent;
+
+  constructor(private route: Router) {
+
+  }
+
+  ngAfterViewInit(){
+    this.rate = this.mapComp.rate;
+    console.log(this.rate);
   }
 
   ngOnInit() {
+
+    this.route.routerState.root.queryParams.subscribe(
+      params => this.rate = params['rate']
+    );
+
     const secondsCounter = interval(1000);
     const mytimeout = interval(1000);
-    const newCounter = secondsCounter.pipe(map(x => this.amount));
+    const newCounter = secondsCounter.pipe(map(x => this.rate));
     // Subscribe to begin publishing values
-    
-    newCounter.subscribe(x => this.counter += (x));
+
+    newCounter.subscribe(x => this.counter += (Number(x)));
     mytimeout.subscribe(n => {
       if ((this.timeout++) > 5) {
         this.counter = 0;
