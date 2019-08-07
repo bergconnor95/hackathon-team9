@@ -100,39 +100,39 @@ export class BusinessGameComponent implements OnInit{
     this.height += this.moneyEarned;
     document.getElementById('progressBar').style.height = this.height+'px';
     //this.lowerView();
-    if(this.moneyEarned >= 50) {
+    if(this.moneyEarned >= 50 && !this.concertUnlocked) {
       // this.concertUnlocked = true;
       document.getElementById("situation").innerText="It will cost 600 dollars to set up a website. But you could always just sell in person!";
       this.cost=600;
       document.getElementById("choiceModal").style.display="block";
       document.getElementById("eventseven").style.backgroundColor="none";
       // document.getElementById("concert").style.visibility="visible";
-    }else if(this.moneyEarned >= 25.00 && !this.concertUnlocked) {
+    }else if(this.moneyEarned >= 25.00 && !this.dotUnlocked) {
 
       document.getElementById("situation").innerText=""
       document.getElementById("choiceModal").style.display="block";
       document.getElementById("eventsix").style.backgroundColor="none";
-    }else if(this.moneyEarned >= 13.00) {
+    }else if(this.moneyEarned >= 13.00 && !this.movieUnlocked) {
 
       document.getElementById("situation").innerText=""
       document.getElementById("choiceModal").style.display="block";
       document.getElementById("eventfive").style.backgroundColor="none";
-    }else if(this.moneyEarned >= 5.00) {
+    }else if(this.moneyEarned >= 5.00 && !this.cubeUnlocked) {
 
       document.getElementById("situation").innerText=""
       document.getElementById("choiceModal").style.display="block";
       document.getElementById("eventfour").style.backgroundColor="none";
-    }else if(this.moneyEarned >= 3.00) {
+    }else if(this.moneyEarned >= 3.00 && !this.happyMealUnlocked) {
 
       document.getElementById("situation").innerText=""
       document.getElementById("choiceModal").style.display="block";
       document.getElementById("eventthree").style.backgroundColor="none";
-    }else if(this.moneyEarned >= 0.99) {
+    }else if(this.moneyEarned >= 0.99 && !this.musicUnlocked) {
 
       document.getElementById("situation").innerText=""
       document.getElementById("choiceModal").style.display="block";
       document.getElementById("eventtwo").style.backgroundColor="none";
-    }else if(this.moneyEarned >= 0.25) {
+    }else if(this.moneyEarned >= 0.25 && !this.gumUnlocked) {
 
       document.getElementById("situation").innerText=""
       document.getElementById("choiceModal").style.display="block";
