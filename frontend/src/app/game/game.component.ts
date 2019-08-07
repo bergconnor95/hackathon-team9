@@ -135,6 +135,6 @@ export class GameComponent implements OnInit{
   }
 
   goHome() {
-    this.route.navigate(['home']);
+    this.router.navigate(['home']);
   }
 }
