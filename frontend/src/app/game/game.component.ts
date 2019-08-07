@@ -65,8 +65,6 @@ export class GameComponent implements OnInit, AfterViewInit {
         this.expandBar();
       }
     });
-    
-    
   }
 
   @HostListener('window:keyup', ['$event'])
