@@ -20,6 +20,7 @@ export class BusinessGameComponent implements OnInit{
   amount = .25;
   rate = 0;
   cost = 0;
+  tier=10;
 
   gumUnlocked: boolean = false;
   musicUnlocked: boolean = false;
@@ -31,7 +32,7 @@ export class BusinessGameComponent implements OnInit{
 
   // modalUnlocked: boolean = false;
 
-  moneyEarned = 0.00;
+  moneyEarned = 10;
   itemToDisplay = 'Gum';
 
   height = 10;
@@ -100,52 +101,52 @@ export class BusinessGameComponent implements OnInit{
     document.getElementById("Rt2earn").style.marginTop = '-'+this.boxMargin+'px';
   }
   expandBar() {
-    this.moneyEarned += (this.rate/60);
+    this.moneyEarned += this.tier*(this.rate/60);
     this.height += this.moneyEarned;
     document.getElementById('progressBar').style.height = this.height+'px';
     //this.lowerView();
-    if(this.moneyEarned >= 50 && !this.concertUnlocked) {
+    if(this.moneyEarned >= 500 && !this.concertUnlocked) {
       this.concertUnlocked = true;
-      document.getElementById("situation").innerText="It will cost 600 dollars to set up a website. But you could always just sell in person!";
+      document.getElementById("situation").innerText="It will cost money to learn about stocks. But you could always not!";
       this.cost=600;
       document.getElementById("choiceModal").style.display="block";
-      document.getElementById("eventseven").style.backgroundColor="none";
+      document.getElementById("eventseven").style.visibility="visible";
       // document.getElementById("concert").style.visibility="visible";
-    }else if(this.moneyEarned >= 25.00 && !this.dotUnlocked) {
+    }else if(this.moneyEarned >= 250 && !this.dotUnlocked) {
       this.dotUnlocked = true;
-      document.getElementById("situation").innerText=""
+      document.getElementById("situation").innerText="It will cost money to set up a new office. But you could just work off your couch!"
       document.getElementById("choiceModal").style.display="block";
-      document.getElementById("eventsix").style.backgroundColor="none";
-    }else if(this.moneyEarned >= 13.00 && !this.movieUnlocked) {
+      document.getElementById("eventsix").style.visibility="visible";
+    }else if(this.moneyEarned >= 130 && !this.movieUnlocked) {
       this.movieUnlocked;
-      document.getElementById("situation").innerText=""
+      document.getElementById("situation").innerText="It will cost money to hire multiple real estate agents. But you could just wing it!!"
       document.getElementById("choiceModal").style.display="block";
-      document.getElementById("eventfive").style.backgroundColor="none";
-    }else if(this.moneyEarned >= 5.00 && !this.cubeUnlocked) {
+      document.getElementById("eventfive").style.visibility="visible";
+    }else if(this.moneyEarned >= 50 && !this.cubeUnlocked) {
       this.cubeUnlocked = true;
-      document.getElementById("situation").innerText=""
+      document.getElementById("situation").innerText="It will cost money to hire a real estate agent. But you could just wing it!"
       document.getElementById("choiceModal").style.display="block";
-      document.getElementById("eventfour").style.backgroundColor="none";
-    }else if(this.moneyEarned >= 3.00 && !this.happyMealUnlocked) {
+      document.getElementById("eventfour").style.visibility="visible";
+    }else if(this.moneyEarned >= 30 && !this.happyMealUnlocked) {
       this.happyMealUnlocked = true;
-      document.getElementById("situation").innerText=""
+      document.getElementById("situation").innerText="It will cost money to search for employees. But you could just hire friends!"
       document.getElementById("choiceModal").style.display="block";
-      document.getElementById("eventthree").style.backgroundColor="none";
-    }else if(this.moneyEarned >= 0.99 && !this.musicUnlocked) {
+      document.getElementById("eventthree").style.visibility="visible";
+    }else if(this.moneyEarned >= 9 && !this.musicUnlocked) {
       this.musicUnlocked = true;
-      document.getElementById("situation").innerText=""
+      document.getElementById("situation").innerText="It will cost money to set up a website. But you could just sell in person!"
       document.getElementById("choiceModal").style.display="block";
-      document.getElementById("eventtwo").style.backgroundColor="none";
-    }else if(this.moneyEarned >= 0.25 && !this.gumUnlocked) {
+      document.getElementById("eventtwo").style.visibility="visible";
+    }else if(this.moneyEarned >= 5 && !this.gumUnlocked) {
       this.gumUnlocked = true;
-      document.getElementById("situation").innerText=""
+      document.getElementById("situation").innerText="It will cost money to set up a home office. But you could just work off your couch!"
       document.getElementById("choiceModal").style.display="block";
-      document.getElementById("eventone").style.backgroundColor="none";
+      document.getElementById("eventone").style.visibility="visible";
     }
   }
 
   spendItNow(cost){
-    this.moneyEarned-=cost;
+    this.moneyEarned-=this.moneyEarned/Math.floor(Math.random() * 6) + 1;
     document.getElementById("choiceModal").style.display="none";
   }
   saveItNow(){

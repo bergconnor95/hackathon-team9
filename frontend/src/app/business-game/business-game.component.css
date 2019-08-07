@@ -36,7 +36,7 @@ margin: auto; */
   height: 60px;
   width: 160px;
   border: 1px solid black;
-  background-color: black;
+  visibility: hidden;
 }
 .container{
   display: none;
