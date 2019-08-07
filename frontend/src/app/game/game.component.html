@@ -1,4 +1,6 @@
-<div style="display: flex; flex-direction:row; position: relative; justify-content: space-evenly;">
+<div id="allOfTheEverything">
+
+<div style="display: flex; flex-direction:row; position: relative; justify-content: space-evenly;" id="bigBox">
   <div style="flex-direction: column">
     <div>
         <img *ngIf="!concertUnlocked" alt="" src="../../assets/images/concert-ticket-sil.png" id="concert-ticket" style="height: 80px;">
@@ -29,26 +31,29 @@
         <img *ngIf="gumUnlocked" alt="" src="../../assets/images/bubble-gum.png" id="gum" style="height: 80px;">
     </div>
   </div>
-  
+
   <div style="flex-direction: column">
     <div class="stay" id="progressBar">
         {{moneyEarned | number : '1.2-2'}}
     </div>
   </div>
 
-  <div style="flex-direction: column">
-    <p style="margin-bottom:70px;">Concert Ticket - $50.00</p>
-    <p style="margin-bottom:70px;">Dot - $25.00</p>
-    <p style="margin-bottom:70px;">Movie Ticket - $13.00</p>
-    <p style="margin-bottom:70px;">Rubik's Cube - $5.00</p>
-    <p style="margin-bottom:70px;">Happy Meal - $3.00</p>
-    <p style="margin-bottom:70px;">Music Download - $0.99</p>
-    <p style="margin-bottom:70px;">Gum - $0.25</p>
+  <div style="flex-direction: column;">
+    <!-- <div style="display: flex; flex-direction:column"> -->
+      <p class="itemDescript" id="concert">Concert Ticket - $50.00</p>
+      <p class="itemDescript" id="dot">Dot - $25.00</p>
+      <p class="itemDescript" id="movie">Movie Ticket - $13.00</p>
+      <p class="itemDescript" id="cube">Rubik's Cube - $5.00</p>
+      <p class="itemDescript" id="happyMeal">Happy Meal - $3.00</p>
+      <p class="itemDescript" id="music">Music Download - $0.99</p>
+      <p class="itemDescript" id="bubbleGum">Gum - $0.25</p>
+    <!-- </div> -->
   </div>
 </div>
 
 <div style="margin-top: 20px; text-align: center;">
-  <button class="earnBtn" (click)="expandBar()">Tap to Earn!</button>
+  <button class="earnBtn earn" (click)="expandBar()" id="Lt2earn">Tap to Earn!</button>
+  <button class="earnBtn earn" (click)="expandBar()" id="Rt2earn">Tap to Earn!</button>
 </div>
 
 <!-- all of the modals below -->
@@ -124,12 +129,12 @@
   </div>
 
 <div class="container" id="spentModal">
-    <div class="content">
-      <h3 style="margin-top: 0;">You've spent all your money!</h3>
-      <p>Was it worth the effort?</p>
-      <div class="buttonContainer">
-        <button (click)="goHome()" style="background-color: #4A90E2; color: white; border: #4A90E2;">Main Menu</button>
-      </div>
+  <div class="content">
+    <h3 style="margin-top: 0;">You've spent all your money!</h3>
+    <p>Was it worth the effort?</p>
+    <div class="buttonContainer">
+      <button (click)="goHome()" style="background-color: #4A90E2; color: white; border: #4A90E2;">Main Menu</button>
     </div>
   </div>
+</div>
 

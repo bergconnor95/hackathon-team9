@@ -93,23 +93,33 @@ export class GameComponent implements OnInit{
   //     document.getElementById('happy-meal').src == 'happy-meal.png'
   //   }
   // }
-
+  lowerView(){
+    // console.log("bro!")
+    this.boxMargin += 10;
+    document.getElementById('bigBox').style.marginTop = this.boxMargin+'px';
+    document.getElementById("Lt2earn").style.marginTop = '-'+this.boxMargin+'px';
+    document.getElementById("Rt2earn").style.marginTop = '-'+this.boxMargin+'px';
+  }
   expandBar() {
     this.moneyEarned += (this.rate / 60);
     this.height += this.moneyEarned;
     document.getElementById('progressBar').style.height = this.height+'px';
-
+    this.lowerView()
     if(this.moneyEarned >= 50) {
       this.concertUnlocked = true;
+      document.getElementById("concert").style.visibility="visible";
       document.getElementById("concertModal").style.display="block";
     }else if(this.moneyEarned >= 25.00 && this.moneyEarned <= (25.00 + this.rate)) {
       this.dotUnlocked = true;
+      document.getElementById("dot").style.visibility="visible";
       document.getElementById("dotModal").style.display="block";
     }else if(this.moneyEarned >= 13.00 && this.moneyEarned <= (13.00 + this.rate)) {
       this.movieUnlocked = true;
+      document.getElementById("movie").style.visibility="visible";
       document.getElementById("movieModal").style.display="block";
     }else if(this.moneyEarned >= 5.00 && this.moneyEarned <= (5.00 + this.rate)) {
       this.cubeUnlocked = true;
+      document.getElementById("cude").style.visibility="visible";
       document.getElementById("cubeModal").style.display="block";
     }else if(this.moneyEarned >= 3.00 && this.moneyEarned <= (3.00 + this.rate)) {
       this.happyMealUnlocked = true;      
