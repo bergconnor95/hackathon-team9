@@ -102,22 +102,22 @@ export class GameComponent implements OnInit{
     if(this.moneyEarned >= 50) {
       this.concertUnlocked = true;
       document.getElementById("concertModal").style.display="block";
-    }else if(this.moneyEarned >= 25.00 && this.moneyEarned <= 25.04) {
+    }else if(this.moneyEarned >= 25.00 && this.moneyEarned <= (25.00 + this.rate)) {
       this.dotUnlocked = true;
       document.getElementById("dotModal").style.display="block";
-    }else if(this.moneyEarned >= 13.00 && this.moneyEarned <= 13.04) {
+    }else if(this.moneyEarned >= 13.00 && this.moneyEarned <= (13.00 + this.rate)) {
       this.movieUnlocked = true;
       document.getElementById("movieModal").style.display="block";
-    }else if(this.moneyEarned >= 5.00 && this.moneyEarned <=5.04) {
+    }else if(this.moneyEarned >= 5.00 && this.moneyEarned <= (5.00 + this.rate)) {
       this.cubeUnlocked = true;
       document.getElementById("cubeModal").style.display="block";
-    }else if(this.moneyEarned >= 3.00 && this.moneyEarned <= 3.02) {
+    }else if(this.moneyEarned >= 3.00 && this.moneyEarned <= (3.00 + this.rate)) {
       this.happyMealUnlocked = true;      
       document.getElementById("happyMealModal").style.display="block";
-    }else if(this.moneyEarned >= 0.99 && this.moneyEarned <= 1.03) {
+    }else if(this.moneyEarned >= 0.99 && this.moneyEarned <= (1.00 + this.rate)) {
       this.musicUnlocked = true;
       document.getElementById("musicModal").style.display="block";
-    }else if(this.moneyEarned >= 0.25 && this.moneyEarned <= 0.28) {
+    }else if(this.moneyEarned >= 0.25 && this.moneyEarned <= (0.25 + this.rate)) {
       this.gumUnlocked = true;
       document.getElementById("gumModal").style.display="block";
     }
