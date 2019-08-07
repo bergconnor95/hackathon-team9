@@ -1,11 +1,13 @@
 import { Component, OnInit, ViewChild, HostListener, Input, AfterViewInit, Host } from '@angular/core';
 import { interval, timer } from 'rxjs';
+import {Component, HostListener, OnInit} from '@angular/core';
 import { ModalService } from '../services/modal.service';
 import { map } from 'rxjs/operators';
 import { MapComponent } from '../map/map.component';
 import { KeyEventsPlugin } from '@angular/platform-browser/src/dom/events/key_events';
 import { KEY_CODE } from '../button-click/button-click.component';
 import { Router } from '@angular/router';
+import {KEY_CODE} from "../button-click/button-click.component";
 
 @Component({
   selector: 'app-game',
@@ -37,6 +39,7 @@ export class GameComponent implements OnInit, AfterViewInit {
   itemToDisplay = 'Gum';
 
   height = 10;
+  boxMargin = 0;
 
   constructor(private modalService: ModalService,
   private route:Router) {}
@@ -73,7 +76,7 @@ export class GameComponent implements OnInit, AfterViewInit {
     if (event.keyCode === KEY_CODE.SPACE) {
       this.timeout = 0;
     }
-    
+
   }
 
   openModal() {
@@ -99,14 +102,22 @@ export class GameComponent implements OnInit, AfterViewInit {
   //     document.getElementById('happy-meal').src == 'happy-meal.png'
   //   }
   // }
-
+  lowerView(){
+    // console.log("bro!")
+    this.boxMargin += 10;
+    document.getElementById('bigBox').style.marginTop = this.boxMargin+'px';
+    document.getElementById("Lt2earn").style.marginTop = '-'+this.boxMargin+'px';
+    document.getElementById("Rt2earn").style.marginTop = '-'+this.boxMargin+'px';
+  }
   expandBar() {
+    this.moneyEarned += 0.04;
+    window.scrollTo(0,0);
     // this.moneyEarned += 0.04;
 
     console.log(this.moneyEarned);
     this.height += this.moneyEarned;
     document.getElementById('progressBar').style.height = this.height+'px';
-
+    this.lowerView()
     if(this.moneyEarned >= 50) {
       this.concertUnlocked = true;
       document.getElementById("concertModal").style.display="block";
@@ -120,7 +131,7 @@ export class GameComponent implements OnInit, AfterViewInit {
       this.cubeUnlocked = true;
       document.getElementById("cubeModal").style.display="block";
     }else if(this.moneyEarned >= 3.00 && this.moneyEarned <= 3.02) {
-      this.happyMealUnlocked = true;      
+      this.happyMealUnlocked = true;
       document.getElementById("happyMealModal").style.display="block";
     }else if(this.moneyEarned >= 0.99 && this.moneyEarned <= 1.03) {
       this.musicUnlocked = true;
@@ -130,7 +141,10 @@ export class GameComponent implements OnInit, AfterViewInit {
       document.getElementById("gumModal").style.display="block";
     }
   }
-
+  @HostListener('window:keyup', ['$event'])
+  keyEvent(event: KeyboardEvent) {
+    this.expandBar()
+  }
   goHome() {
     this.route.navigate(['home'])
   }
